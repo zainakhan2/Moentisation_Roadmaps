@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Founder's Complete Task Sheet — 180-Day Execution Manual</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d12;--card:#12151c;--card2:#191d28;--border:#252a38;--t1:#e8ecf4;--t2:#9aa3b8;--t3:#5d6578;--kdp:#34d399;--kdp-bg:#34d39908;--yt:#f59e0b;--yt-bg:#f59e0b08;--ig:#ec4899;--ig-bg:#ec489908;--setup:#60a5fa;--setup-bg:#60a5fa08;--red:#f87171;--green:#4ade80;--amber:#fbbf24}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t2);font-family:'Bitter',Georgia,serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+.hdr{padding:48px 24px 36px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,#60a5fa05,transparent)}
+.hdr>*{position:relative}
+.hdr-tag{font:500 10px/1 'JetBrains Mono',monospace;color:var(--setup);text-transform:uppercase;letter-spacing:.3em;margin-bottom:10px}
+h1{font-family:'Sora',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;color:var(--t1);line-height:1.1;margin-bottom:6px}
+h1 em{font-style:normal;background:linear-gradient(135deg,var(--kdp),var(--yt),var(--ig));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr-sub{font-size:13px;color:var(--t3);max-width:650px;margin:0 auto}
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(11,13,18,.94);border-bottom:1px solid var(--border);backdrop-filter:blur(14px)}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 12px}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{padding:12px 16px;font:600 11px/1 'Sora',sans-serif;color:var(--t3);background:none;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:.15s}
+.nav-btn:hover{color:var(--t2)}.nav-btn.active{color:var(--setup);border-bottom-color:var(--setup)}
+.ct{max-width:1000px;margin:0 auto;padding:20px 16px}
+.section{display:none;animation:fadeIn .25s}.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+/* DAY CARDS */
+.week-hdr{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:var(--t1);padding:20px 0 10px;border-bottom:1px solid var(--border);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.week-tag{font:700 9px/1 'JetBrains Mono',monospace;padding:3px 10px;border-radius:10px}
+.day{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.day-h{padding:14px 18px;display:flex;align-items:center;gap:10px;cursor:pointer;flex-wrap:wrap}
+.day-h:hover{background:var(--card2)}
+.day-h h3{font:700 13px/1.3 'Sora',sans-serif;color:var(--t1);flex:1;min-width:180px}
+.day-num{font:700 10px/1 'JetBrains Mono',monospace;padding:3px 10px;border-radius:10px}
+.dn-s{background:var(--setup-bg);color:var(--setup);border:1px solid #60a5fa18}
+.dn-k{background:var(--kdp-bg);color:var(--kdp);border:1px solid #34d39918}
+.dn-y{background:var(--yt-bg);color:var(--yt);border:1px solid #f59e0b18}
+.dn-i{background:var(--ig-bg);color:var(--ig);border:1px solid #ec489918}
+.dn-a{background:#ffffff08;color:var(--t3);border:1px solid var(--border)}
+.day-b{padding:0 18px 16px;display:none}.day-b.open{display:block}
+/* TASKS */
+.task-group{margin:10px 0}
+.tg-label{font:700 10px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;padding:6px 0;display:flex;align-items:center;gap:6px}
+.tg-k{color:var(--kdp)}.tg-y{color:var(--yt)}.tg-i{color:var(--ig)}.tg-s{color:var(--setup)}
+.task{padding:8px 0 8px 20px;font-size:12px;color:var(--t2);line-height:1.6;border-left:2px solid var(--border);margin-left:4px;position:relative}
+.task::before{content:'○';position:absolute;left:-7px;top:7px;font-size:10px;color:var(--t3)}
+.task strong{color:var(--t1)}.task em{color:var(--t3);font-style:normal;font-size:10px;font-family:'JetBrains Mono',monospace}
+.task-ref{font:500 9px/1 'JetBrains Mono',monospace;color:var(--setup);background:var(--setup-bg);padding:1px 6px;border-radius:4px;margin-left:4px}
+.task-time{font:500 9px/1 'JetBrains Mono',monospace;color:var(--amber);margin-left:4px}
+/* PROCESS */
+.proc{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:8px 0 8px 20px;font-size:11px;color:var(--t3);line-height:1.7}
+.proc strong{color:var(--t2)}
+.proc ol,.proc ul{padding-left:18px;margin:4px 0}
+.proc li{margin:2px 0}
+/* MILESTONE */
+.ms{padding:14px 18px;border-radius:8px;margin:12px 0;font-size:12px;line-height:1.6}
+.ms-g{background:var(--kdp-bg);border:1px solid #34d39920;color:#7af0c4}
+.ms-y{background:var(--yt-bg);border:1px solid #f59e0b20;color:#fcd480}
+.ms-i{background:var(--ig-bg);border:1px solid #ec489920;color:#f8a4cc}
+.ms-a{background:var(--setup-bg);border:1px solid #60a5fa20;color:#a0c8ff}
+.ms strong{color:var(--t1)}
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:10px}
+.tbl th{background:var(--card2);color:var(--t3);padding:8px;text-align:left;font:500 8px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--border)}
+.tbl td{padding:8px;border:1px solid var(--border);color:var(--t2);vertical-align:top}
+.g{color:var(--green);font-weight:700}.r{color:var(--red);font-weight:700}
+/* FOOTER */
+.foot{text-align:center;padding:30px 20px;font:400 10px/1 'JetBrains Mono',monospace;color:#3a4050;border-top:1px solid var(--border);margin-top:30px}
+/* SUMMARY CARDS */
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.sum-card{padding:16px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.sum-card h4{font:700 11px/1 'Sora',sans-serif;margin-bottom:6px}
+.sum-card p{font-size:11px;color:var(--t3);line-height:1.5}
+</style></head><body><div id="tff-nav" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0D1117;border-bottom:2px solid #D97706;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:'Segoe UI',Arial,sans-serif">
+<a href="index.html" style="color:#F59E0B;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap">&#9776; TFF Portal</a>
+<span style="color:#21262D">|</span>
+<a href="Founders_Task_Tracker.html" style="color:#10B981;text-decoration:none;font-size:12px;white-space:nowrap">&#9745; Task Tracker</a>
+<a href="Founders_Execution_Plan.html" style="color:#4DA6FF;text-decoration:none;font-size:12px;white-space:nowrap">&#9889; Exec Plan</a>
+<span style="color:#21262D">|</span>
+<select id="tff-jump" onchange="if(this.value)window.location.href=this.value" style="background:#161B22;color:#E6EDF3;border:1px solid #21262D;border-radius:4px;padding:4px 8px;font-size:11px;max-width:200px;cursor:pointer">
+<option value="">Jump to document...</option>
+<optgroup label="KDP Publishing"><option value="K1.1_Niche_Research_Report.html">K1.1 Niche Research Report</option><option value="K1.1_Niche_Scoring_Matrix.xlsx">K1.1 Niche Scoring Matrix [XLSX]</option><option value="K1.1_Gap_Analysis_Addendum.html">K1.1 Gap Analysis Addendum</option><option value="K1.2_Competitor_Intelligence.html">K1.2 Competitor Intelligence</option><option value="K1.3_Infrastructure_Brand_Setup.html">K1.3 Infrastructure & Brand Setup</option><option value="K1.3_KDP_Tracker_Template.xlsx">K1.3 KDP Sales Tracker [XLSX]</option><option value="K1.4_Keyword_Category_Strategy.html">K1.4 Keyword & Category Strategy</option><option value="K2.1_Interior_Template_Library.html">K2.1 Interior Template Library</option><option value="K2.2_Cover_Design_System.html">K2.2 Cover Design System</option></optgroup><optgroup label="YouTube"><option value="Y1.1_YouTube_Niche_Analysis.html">Y1.1 YouTube Niche Analysis</option><option value="Y1.1_YouTube_Niche_Addendum.html">Y1.1 Niche Addendum</option><option value="Y1.2_Competitive_Landscape.html">Y1.2 Competitive Landscape</option><option value="Y1.3_Channel_Branding.html">Y1.3 Channel Branding</option><option value="Y1.4_Production_Pipeline.html">Y1.4 Production Pipeline</option><option value="Y1_Gap_Analysis_GTM_Revision.html">Y1 Gap Analysis & GTM</option><option value="Y2.1_Script_Writing_Framework.html">Y2.1 Script Writing Framework</option><option value="Y2.2_Visual_Production_Pipeline.html">Y2.2 Visual Production Pipeline</option><option value="Y2.3_Audio_Voiceover_System.html">Y2.3 Audio & Voiceover System</option><option value="Y2.4_Thumbnail_Design_System.html">Y2.4 Thumbnail Design System</option><option value="Y3.1_First_10_Videos.html">Y3.1 First 10 Videos Plan</option><option value="Y3.2_Publishing_Schedule.html">Y3.2 Publishing Schedule</option><option value="Y3.3_SEO_Metadata.html">Y3.3 SEO & Metadata System</option><option value="Y3.4_Community_Monetization.html">Y3.4 Community & Monetization</option><option value="Y2Y3_Gap_Analysis.html">Y2-Y3 Gap Analysis</option></optgroup><optgroup label="Instagram"><option value="I0_Instagram_Track_Roadmap.html">I0 Instagram Track Roadmap</option><option value="I1.1_Profile_Optimization.html">I1.1 Profile Optimization</option><option value="I1.2_Visual_Identity_Feed.html">I1.2 Visual Identity & Feed</option><option value="I1.3_Hashtag_SEO_Strategy.html">I1.3 Hashtag & SEO Strategy</option><option value="I1.4_Cross_Platform_Sync.html">I1.4 Cross-Platform Sync</option></optgroup><optgroup label="Execution & Tracking"><option value="Founders_Task_Tracker.html">Interactive 30-Day Task Tracker</option><option value="Founders_Task_Sheet.xlsx">30-Day Task Sheet (Excel) [XLSX]</option><option value="Founders_Execution_Plan.html">Execution Plan & Achievement Matrix</option><option value="Founders_180_Day_Task_Sheet.html"selected>180-Day Extended Task Sheet</option><option value="command-center.html">Command Center Dashboard</option><option value="Roadmap_Portal.html">Roadmap Portal (Legacy)</option></optgroup></select></div><div style="height:44px"></div>
+
+<div class="hdr">
+<div class="hdr-tag">Complete Execution Manual</div>
+<h1>Founder's <em>180-Day Task Sheet</em></h1>
+<div class="hdr-sub">Every task. Every process. Every day. Across all 3 tracks (KDP · YouTube · Instagram) with step-by-step instructions referencing your 30+ strategy documents.</div>
+</div>
+
+<div class="nav"><div class="nav-inner">
+<button class="nav-btn active" onclick="show('w1')">Week 1</button>
+<button class="nav-btn" onclick="show('w2')">Week 2</button>
+<button class="nav-btn" onclick="show('w3')">Week 3</button>
+<button class="nav-btn" onclick="show('w4')">Week 4</button>
+<button class="nav-btn" onclick="show('m2')">Month 2</button>
+<button class="nav-btn" onclick="show('m3')">Month 3</button>
+<button class="nav-btn" onclick="show('m46')">Months 4-6</button>
+<button class="nav-btn" onclick="show('ref')">Quick Reference</button>
+</div></div>
+
+<div class="ct">
+
+<!-- ========== WEEK 1 ========== -->
+<div class="section active" id="sec-w1">
+<div class="week-hdr"><span class="week-tag dn-s">WEEK 1</span> Days 1–7: Infrastructure + KDP Book 1 + YouTube Setup</div>
+
+<!-- DAY 1 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-s">DAY 1</span><h3>Complete Infrastructure Setup — All Accounts & Tools</h3><span class="day-num dn-a">~2.5 hrs</span></div>
+<div class="day-b">
+
+<div class="task-group"><div class="tg-label tg-s">⚙️ SETUP — KDP ACCOUNT</div>
+<div class="task"><strong>Create Amazon KDP Account</strong> at kdp.amazon.com <span class="task-time">15 min</span> <span class="task-ref">K1.3</span>
+<div class="proc"><strong>Step-by-step:</strong>
+<ol>
+<li>Go to kdp.amazon.com → Sign in with Amazon account (or create one)</li>
+<li>Complete the <strong>Tax Information Interview (W-8BEN)</strong>: Select "Individual" → Pakistan → Enter CNIC number as tax ID → Sign electronically</li>
+<li>Set up <strong>payment method</strong>: Add bank account for royalty deposits (Payoneer or Pakistani bank with SWIFT code)</li>
+<li>Set <strong>payment threshold</strong> to minimum ($100) to get paid sooner</li>
+<li>Verify your email address if prompted</li>
+</ol>
+<strong>Critical:</strong> The W-8BEN interview determines your tax withholding rate. Pakistan has a US tax treaty — you should get 0% withholding on royalties. If the system shows 30%, you filled something wrong — redo it.</div>
+</div>
+
+<div class="task"><strong>Create dedicated Gmail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="790d111c1f160b1e160d0d1c171f0b16170d391e14181015571a1614">[email&#160;protected]</a></strong> <span class="task-time">3 min</span> <span class="task-ref">I1.1</span>
+<div class="proc">This email serves: Instagram contact button, YouTube channel email, brand correspondence, future sponsorship inquiries. Keep it separate from personal email.</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-s">⚙️ SETUP — CREATIVE TOOLS</div>
+<div class="task"><strong>Create Canva account</strong> (free tier) <span class="task-time">5 min</span> <span class="task-ref">K1.3</span>
+<div class="proc"><ol>
+<li>Go to canva.com → Sign up with <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="66120e03000914010912120308001409081226010b070f0a4805090b">[email&#160;protected]</a></li>
+<li>Upload brand fonts (all free in Canva): Search for <strong>Oswald</strong>, <strong>Libre Baskerville</strong>, <strong>Special Elite</strong>, <strong>Outfit</strong>, <strong>Playfair Display</strong>, <strong>Bebas Neue</strong> — star each for quick access</li>
+<li>Create folder: "The Forgotten Front" for all brand assets</li>
+<li>Create sub-folders: "KDP Covers", "KDP Interiors", "YouTube Thumbnails", "Instagram Templates"</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Install Audacity</strong> (free, audacityteam.org) + <strong>CapCut</strong> (free, capcut.com) <span class="task-time">10 min</span> <span class="task-ref">Y2.3, Y2.2</span>
+<div class="proc">Audacity = voiceover recording & mastering. CapCut = video editing. Both free. Download desktop versions for best performance. Mobile CapCut works but desktop is faster for 10+ min videos.</div>
+</div>
+
+<div class="task"><strong>Create folder structure on your computer</strong> <span class="task-time">5 min</span> <span class="task-ref">I1.4</span>
+<div class="proc"><strong>Create this exact folder tree:</strong><br>
+TheForgottenFront/<br>
+├── Scripts/ (video scripts)<br>
+├── Assets/ (archival images, maps)<br>
+├── Audio/ (voiceover recordings)<br>
+├── Exports/ → YouTube/ Instagram/ TikTok/<br>
+├── Thumbnails/<br>
+├── KDP/ → Book1/ Book2/ ... Book8/<br>
+└── Brand/ (logo, color reference, fonts)</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-y">🎬 SETUP — YOUTUBE CHANNEL</div>
+<div class="task"><strong>Create YouTube channel as @TheForgottenFront</strong> <span class="task-time">15 min</span> <span class="task-ref">Y1.3</span>
+<div class="proc"><ol>
+<li>Go to YouTube Studio → Create Channel → Choose "Use a custom name" → Enter "The Forgotten Front"</li>
+<li>Claim handle: @TheForgottenFront (if taken, try @TheForgottenFrontHQ)</li>
+<li>Upload <strong>profile picture</strong>: Create in Canva → 320×320px → Dark background (#0A0A0A) → "TFF" in Oswald Bold, amber (#D97706), centered → thin amber border circle</li>
+<li>Upload <strong>banner</strong>: Create in Canva → 2560×1440px → Dark background → "THE FORGOTTEN FRONT" in Oswald → "The stories they buried" in Libre Baskerville Italic → amber accent line</li>
+<li>Fill <strong>About</strong> section: Channel description with keywords (military history, forgotten wars, WW2, soldiers) per Y3.3 guidelines</li>
+<li>Add links: website/socials (add Instagram link once created)</li>
+<li>Set channel <strong>keywords</strong> in YouTube Studio → Settings → Channel → Basic Info</li>
+</ol></div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 SETUP — INSTAGRAM</div>
+<div class="task"><strong>Create Instagram @theforgottenfront</strong> and configure per I1.1 <span class="task-time">33 min</span> <span class="task-ref">I1.1</span>
+<div class="proc"><strong>Follow the 13-point checklist from I1.1:</strong>
+<ol>
+<li>Create account → Switch to <strong>Professional Creator</strong> (not Business)</li>
+<li>Set category: <strong>"Education"</strong></li>
+<li>Set username: <strong>@theforgottenfront</strong></li>
+<li>Set name field: <strong>"The Forgotten Front | Military History"</strong></li>
+<li>Write bio (copy-paste): "The military stories history tried to bury. Forgotten soldiers. Secret operations. Dark chapters. 📺 Full documentaries ↓"</li>
+<li>Upload profile picture (same as YouTube — the TFF logo)</li>
+<li>Add <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="582c303d3e372a3f372c2c3d363e2a37362c183f35393134763b3735">[email&#160;protected]</a> as contact email</li>
+<li>Add link in bio: youtube.com/@TheForgottenFront?sub_confirmation=1</li>
+<li>Ensure account is <strong>Public</strong></li>
+<li>Enable <strong>search engine indexing</strong> in Privacy settings</li>
+<li>Create 5 highlight covers in Canva (10 min): dark bg + amber icons for About, Latest, Facts, Research, Books</li>
+<li>Create "ABOUT" highlight with 3-5 intro Stories</li>
+<li>Optional: Claim @theforgottenfront on Threads</li>
+</ol></div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-s">⚙️ SETUP — OTHER PLATFORMS</div>
+<div class="task"><strong>Register @TheForgottenFront on TikTok + Twitter/X</strong> <span class="task-time">10 min</span> <span class="task-ref">I1.4</span>
+<div class="proc">Claim handles now to prevent squatting. Upload same profile pic. Fill basic bio. No content needed yet — just reserve the names. Consistent branding across all platforms.</div>
+</div>
+</div>
+
+<div class="ms ms-a"><strong>🏁 DAY 1 COMPLETE.</strong> All accounts created: KDP, YouTube, Instagram, TikTok, Twitter/X, Canva, Gmail. Tools installed: Audacity, CapCut. Folder structure ready. You never need to do setup again — everything from tomorrow is production.</div>
+</div></div>
+
+<!-- DAY 2 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAY 2</span><h3>KDP Book 1 Interior — Part 1 (Front Matter + Months 1-4)</h3><span class="day-num dn-a">~2 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 1: NEW DAD JOURNAL</div>
+<div class="task"><strong>Open Canva → Custom Size: 6×9 inches</strong> (1872×2808 px at 312 DPI). Begin Book 1 interior. <span class="task-time">90 min</span> <span class="task-ref">K2.1</span>
+<div class="proc"><strong>Pages to build today (follow K2.1 specs exactly):</strong>
+<ol>
+<li><strong>Title Page:</strong> Book title in Playfair Display, subtitle below, pen name at bottom. Centered. Clean.</li>
+<li><strong>Copyright Page:</strong> "© 2026 [Pen Name]. All rights reserved. Published via Amazon KDP. ISBN assigned by Amazon."</li>
+<li><strong>Dedication Page:</strong> Simple italic text. "For every new dad figuring it out as you go."</li>
+<li><strong>Table of Contents:</strong> List all 12 monthly sections + bonus pages</li>
+<li><strong>Introduction:</strong> 1 page. "This journal is designed for the dad who..." 150-200 words.</li>
+<li><strong>Month 1 Section:</strong> Monthly milestone checklist (rolling over, first smile, sleep schedule), 3 guided journal prompts ("What surprised you most about being a dad this month?"), photo/memory spot, dad energy tracker</li>
+<li><strong>Month 2 Section:</strong> Same structure, age-appropriate milestones</li>
+<li><strong>Month 3 Section:</strong> Same structure</li>
+<li><strong>Month 4 Section:</strong> Same structure</li>
+</ol>
+<strong>Design rules from K2.1:</strong> 0.5" interior margins minimum. Font size 11-12pt for body. Consistent headers. Alternate between lined journal pages and checklist pages for variety. Use Outfit font for body text (clean, modern). Every spread should feel premium — not like a generic journal.</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — TEMPLATE SETUP</div>
+<div class="task"><strong>Create 5 Story Highlight covers in Canva</strong> <span class="task-time">10 min</span> <span class="task-ref">I1.2</span>
+<div class="proc">1080×1920px each. Dark background (#0A0A0A). Simple amber (#D97706) line icon centered. Labels: About, Latest, Facts, Research, Books. Export as PNG. Upload to Instagram as Story → add to Highlight.</div>
+</div>
+</div>
+</div></div>
+
+<!-- DAY 3 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAY 3</span><h3>KDP Book 1 Interior — Part 2 (Months 5-12 + Bonus) + IG Templates</h3><span class="day-num dn-a">~2.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 1 CONTINUED</div>
+<div class="task"><strong>Build Months 5-12 sections + bonus pages</strong> <span class="task-time">90 min</span> <span class="task-ref">K2.1</span>
+<div class="proc"><ol>
+<li>Months 5-8: Continue monthly milestone format. Milestones progress (sitting up, solid foods, babbling, crawling).</li>
+<li>Months 9-12: Walking, first words, first birthday prep. More complex journal prompts.</li>
+<li><strong>"Letter to My Baby" page:</strong> Full blank lined page with decorative header "A Letter to My Child on Their First Birthday"</li>
+<li><strong>"Year in Review" spread:</strong> Summary checklist — height/weight tracker, first word, first step, favorite toy, funniest moment</li>
+<li><strong>Final pages:</strong> "Notes" (3 blank lined pages), "Contacts" (pediatrician, emergency numbers)</li>
+</ol>
+<strong>Total page count target: 100-120 pages.</strong> Count your Canva pages. Even numbers only (books print in signatures).</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — 4 CANVA TEMPLATES</div>
+<div class="task"><strong>Create all 4 Instagram templates in Canva</strong> <span class="task-time">45 min</span> <span class="task-ref">I1.2</span>
+<div class="proc"><strong>Template 1 — Reel Cover (1080×1920):</strong> Blackout bg → Oswald Bold title in safe zone → red badge top → amber accent bar → TFF watermark 20% opacity bottom<br><br>
+<strong>Template 2 — Carousel (1080×1350, multi-page):</strong> Slide 1 hook → Slides 2-6 numbered facts → Slide 7 summary → Slide 8 CTA "Follow @theforgottenfront"<br><br>
+<strong>Template 3 — Fact Card (1080×1350):</strong> Centered quote/fact in Libre Baskerville → "DID YOU KNOW?" badge in Special Elite → amber bar<br><br>
+<strong>Template 4 — Story (1080×1920, 3 variants):</strong> Fact variant, Poll variant (space for sticker), Video Teaser variant<br><br>
+Save each as separate Canva designs. Name them: "TFF Reel Cover Template", "TFF Carousel Template", etc.</div>
+</div>
+</div>
+</div></div>
+
+<!-- DAY 4 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAY 4</span><h3>KDP Book 1 — Cover Design + Interior Finalization</h3><span class="day-num dn-a">~2 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — COVER DESIGN</div>
+<div class="task"><strong>Download KDP cover template + design Book 1 cover</strong> <span class="task-time">60 min</span> <span class="task-ref">K2.2</span>
+<div class="proc"><ol>
+<li>Go to kdp.amazon.com/cover-calculator → Enter: Trim 6×9, page count (your actual count), paper type White, ink B&W → Download template PDF</li>
+<li>Open Canva → Custom size matching the template dimensions (will be ~12.5×9.25" depending on page count)</li>
+<li>Upload the KDP template as background layer (guides for spine, margins, bleed)</li>
+<li><strong>Design following K2.2 Dad Niche blueprint:</strong>
+  — Color palette: Cream (#FDF6EC) + Navy (#1E3A5F) + Amber (#D97706)
+  — Front cover: Title in Playfair Display Bold, subtitle in Outfit, simple geometric badge/icon, clean modern feel
+  — Spine: Title + pen name in small text, centered vertically
+  — Back cover: 3-4 bullet points describing the journal, barcode area (bottom right, leave 2×1.2" clear)
+  — Bleed: Extend background color 0.125" beyond trim on all edges</li>
+<li>Export as <strong>PDF Print</strong> (select "Flatten PDF" if available)</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Final interior review + export</strong> <span class="task-time">30 min</span> <span class="task-ref">K2.1</span>
+<div class="proc"><ol>
+<li>Review every page: check margins (nothing within 0.5" of edges), font consistency, no orphan text</li>
+<li>Confirm page count is even</li>
+<li>Export interior as <strong>PDF Print</strong> from Canva</li>
+<li>Also export eBook cover: Create separate 2560×1600px image (front cover only, no spine/back) → Export as JPEG</li>
+</ol></div>
+</div>
+</div>
+</div></div>
+
+<!-- DAY 5 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAY 5</span><h3>🎉 PUBLISH BOOK 1 ON AMAZON KDP</h3><span class="day-num dn-a">~1 hr</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — PUBLISH</div>
+<div class="task"><strong>Submit Book 1 to KDP for review</strong> <span class="task-time">45 min</span> <span class="task-ref">K1.4, K2.2</span>
+<div class="proc"><ol>
+<li>Log into KDP → <strong>Create → Paperback</strong></li>
+<li><strong>Book Details page:</strong>
+  — Language: English
+  — Title: Use optimized title from K1.4 (e.g., "New Dad Journal: A First-Year Guide to Fatherhood")
+  — Subtitle: Include keywords (e.g., "Monthly Milestone Tracker, Guided Prompts & Memory Keeper for New Fathers")
+  — Author/Pen name: From K1.3
+  — Description: Use K1.4 template (HTML formatting allowed — use bold/bullets)</li>
+<li><strong>Content page:</strong>
+  — Upload interior PDF
+  — Upload cover PDF
+  — Set trim: 6×9 inches
+  — No bleed (interior) / Bleed if cover extends
+  — Paper: White, B&W
+  — Launch <strong>Previewer</strong> → check every page especially first/last, spine text, cover alignment</li>
+<li><strong>Pricing page:</strong>
+  — All territories: Select all marketplaces
+  — Price: <strong>$12.99 USD</strong> (NEVER below $9.99 — the 60% royalty threshold)
+  — Set GBP, EUR, etc. using Amazon's suggested conversion
+  — Royalty display should show ~$5.07 per sale at $12.99</li>
+<li><strong>7 backend keywords</strong> from K1.4 (one per slot, no commas within a slot)</li>
+<li><strong>3 categories</strong> from K1.4 — use Browse Categories to find exact matches</li>
+<li>Click <strong>"Publish Your Paperback"</strong></li>
+</ol>
+<strong>Review takes 24-72 hours.</strong> You'll get an email when it's live on Amazon.</div>
+</div>
+</div>
+
+<div class="ms ms-g"><strong>🎉 MILESTONE: Your first product is submitted to Amazon!</strong> KDP Book 1 is in review. Even in the worst-case scenario, this book will earn you $3-5 per sale in passive royalties for years. By Day 30 you'll have 4 books live.</div>
+</div></div>
+
+<!-- DAY 6 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAY 6</span><h3>YouTube Video #1 — Research + Script Writing</h3><span class="day-num dn-a">~2.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — VIDEO #1 RESEARCH</div>
+<div class="task"><strong>Research Video #1: "The 2.5 Million Soldiers History Forgot"</strong> <span class="task-time">60 min</span> <span class="task-ref">Y2.1, Y3.1</span>
+<div class="proc"><ol>
+<li>Open Claude → Use the 4 research prompts from Y2.1:
+  — Prompt 1: "Give me a comprehensive overview of [Indian soldiers in WW2] including key events, people, controversies..."
+  — Prompt 2: "What are the most surprising or little-known facts about [topic]?"
+  — Prompt 3: "What are the common misconceptions about [topic]?"
+  — Prompt 4: "Create a chronological timeline of the most dramatic moments in [topic]"</li>
+<li>Copy all research into a Google Doc or text file in Scripts/TFF-001-Research.txt</li>
+<li>Identify the <strong>emotional core:</strong> 2.5 million volunteered → fought on every front → came home to colonialism → history forgot them</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Write full script (~2,100 words / 12-15 min video)</strong> <span class="task-time">60 min</span> <span class="task-ref">Y2.1</span>
+<div class="proc"><strong>Follow the Y2.1 "Dark Revelation" story structure:</strong>
+<ol>
+<li><strong>Cold Open (0-15 sec):</strong> "In 1939, 2.5 million men volunteered for a war that wasn't theirs. They fought on every front, from the deserts of North Africa to the jungles of Burma. When it was over, the world forgot they existed."</li>
+<li><strong>Act 1 — Setup (2-3 min):</strong> Context. Why India joined. Scale of the volunteer army. Comparison (larger than the French, Australian, and Canadian forces combined).</li>
+<li><strong>Act 2 — The Battles (5-7 min):</strong> Burma campaign, North Africa, Italy. Specific heroic moments. Named soldiers where possible.</li>
+<li><strong>Act 3 — The Forgetting (3-4 min):</strong> Partition. Independence movements. Why the West didn't include them in WW2 narratives. The graves that still exist in Burma and Italy.</li>
+<li><strong>Outro (30 sec):</strong> "They fought for a country that colonized them, in a war that wasn't theirs, and when they came home, history moved on without them. The stories they never taught you — that's what this channel is about."</li>
+</ol>
+<strong>Add [VISUAL CUE] markers:</strong> e.g., "[SHOW: Archival photo of Indian troops marching]" — one every 15-20 seconds.
+<br><br><strong>Rewrite 40-60% in your own voice.</strong> Claude gives you the structure and facts. YOU rewrite the emotional beats, transitions, and opinions. This is what makes it YOUR channel.</div>
+</div>
+
+<div class="task"><strong>Download 20+ archival images</strong> from copyright-safe sources <span class="task-time">30 min</span> <span class="task-ref">Y2.2</span>
+<div class="proc"><strong>Sources (all free, public domain):</strong>
+— Wikimedia Commons: search "Indian Army World War 2" → filter by "Public domain"
+— Imperial War Museum (iwm.org.uk): free for non-commercial use with credit
+— Library of Congress (loc.gov): all images are public domain
+— National Archives (archives.gov): public domain
+<br><br>Save all images in Assets/TFF-001/ folder. Name descriptively: "indian-troops-burma-1944.jpg"
+<br><br><strong>⚠️ NEVER use Getty, Alamy, or Shutterstock images — these are copyrighted and will get you strikes.</strong></div>
+</div>
+</div>
+</div></div>
+
+<!-- DAY 7 -->
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAY 7</span><h3>YouTube Video #1 — Voiceover + Edit + Thumbnail</h3><span class="day-num dn-a">~3 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — PRODUCTION</div>
+<div class="task"><strong>Record voiceover in Audacity</strong> <span class="task-time">45 min</span> <span class="task-ref">Y2.3</span>
+<div class="proc"><ol>
+<li>Open Audacity → Set sample rate 44100 Hz, Mono</li>
+<li>Record in a <strong>quiet room</strong> — closet with clothes is ideal for sound dampening</li>
+<li>Read script in documentary narrator style — steady pace, clear pronunciation</li>
+<li>It's OK to pause and restart sentences — you'll edit out mistakes</li>
+<li><strong>Apply 7-step mastering chain from Y2.3:</strong>
+  — Noise Reduction (get noise profile from silent section → apply)
+  — Normalize to -1dB
+  — Compressor (threshold -12dB, ratio 3:1)
+  — EQ: cut below 80Hz, slight boost at 2-4kHz for clarity
+  — Limiter at -1dB
+  — Export as WAV (highest quality for editing)</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Edit video in CapCut</strong> <span class="task-time">90 min</span> <span class="task-ref">Y2.2</span>
+<div class="proc"><ol>
+<li>Import voiceover audio as main track</li>
+<li>Add archival images timed to script, with <strong>Ken Burns effect</strong> (slow zoom/pan on each image — 5-8 seconds per image)</li>
+<li>Add <strong>text overlays</strong> for key facts and names (Oswald Bold font, white on dark)</li>
+<li>Add <strong>maps</strong> where geography matters (screenshot from Google Maps → annotate in Canva)</li>
+<li>Add <strong>background music</strong>: Pixabay.com → search "cinematic documentary" → download 2-3 tracks. Layer quietly under voiceover (-15 to -20dB)</li>
+<li>Add <strong>outro</strong>: 15 seconds with subscribe prompt + next video teaser</li>
+<li>Export at <strong>1080p, 30fps, H.264</strong> → save in Exports/YouTube/TFF-001-FULL.mp4</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Create YouTube thumbnail in Canva</strong> <span class="task-time">15 min</span> <span class="task-ref">Y2.4</span>
+<div class="proc"><strong>Use Template A "The Reveal" from Y2.4:</strong>
+— 1280×720px
+— Left 2/3: Dramatic archival image with slight orange tint
+— Right 1/3: Large Oswald text "2.5 MILLION FORGOTTEN" in white
+— Red badge corner: "UNTOLD"
+— Dark overlay (40-50%) on image for contrast
+— Export as PNG</div>
+</div>
+
+<div class="task"><strong>Script + record 3 Shorts from Video #1</strong> <span class="task-time">30 min</span> <span class="task-ref">Y2Y3 Gap Analysis</span>
+<div class="proc"><strong>Each Short = 30-60 seconds. One hook fact from the video:</strong>
+— Short 1: "87,000 Indian soldiers died in WW2 — nobody remembers" (the most emotional stat)
+— Short 2: "The largest volunteer army in history" (the scale fact)
+— Short 3: "India sent more soldiers to WW2 than Australia, Canada, and France combined" (the comparison)
+<br><br>Record each in CapCut → vertical 1080×1920 → add captions → add music → export as separate files. Save in Exports/YouTube/ AND Exports/Instagram/ AND Exports/TikTok/</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — FIRST STORIES</div>
+<div class="task"><strong>Post 3 "About" Stories for your ABOUT highlight</strong> <span class="task-time">10 min</span> <span class="task-ref">I1.1</span>
+<div class="proc">Story 1: "What is The Forgotten Front?" — text on dark background
+Story 2: "The military history stories they never taught you" — with archival image
+Story 3: "New stories every week" — upload schedule. 
+Add all 3 to your ABOUT highlight. Your Instagram is now visually live.</div>
+</div>
+</div>
+
+<div class="ms ms-y"><strong>🏁 WEEK 1 COMPLETE.</strong> Book 1 submitted to Amazon (awaiting review). Video #1 fully produced + 3 Shorts ready. Instagram page live with templates and About stories. All infrastructure set up. You're ready to publish.</div>
+</div></div>
+
+</div>
+
+<!-- ========== WEEK 2 ========== -->
+<div class="section" id="sec-w2">
+<div class="week-hdr"><span class="week-tag dn-y">WEEK 2</span> Days 8–14: First Uploads Go Live + KDP Book 2 + Content Distribution</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAY 8</span><h3>🚀 PUBLISH Video #1 on YouTube + First Instagram Reel</h3><span class="day-num dn-a">~2 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — FIRST UPLOAD</div>
+<div class="task"><strong>Upload Video #1 to YouTube with full SEO optimization</strong> <span class="task-time">30 min</span> <span class="task-ref">Y3.3</span>
+<div class="proc"><ol>
+<li>YouTube Studio → Upload → Select TFF-001-FULL.mp4</li>
+<li><strong>Title:</strong> Use formula from Y3.3 — e.g., "The 2.5 Million Soldiers History Forgot — India's Untold WW2 Story"</li>
+<li><strong>Description:</strong> Follow Y3.3 template: Hook paragraph → timestamps → 3 key facts → subscribe CTA → social links → 15-20 tags in description</li>
+<li><strong>Thumbnail:</strong> Upload custom thumbnail from yesterday</li>
+<li><strong>Tags:</strong> 15-20 tags from Y3.3 keyword research</li>
+<li><strong>End screen:</strong> Add subscribe button + "Best for viewer" video suggestion</li>
+<li><strong>Cards:</strong> Add 2-3 cards linking to subscribe/related content</li>
+<li><strong>Playlist:</strong> Create "Forgotten Stories" playlist, add this video</li>
+<li><strong>Pin comment:</strong> "What's the most shocking fact from this video? Reply below 👇"</li>
+<li>Set visibility: <strong>Public</strong> → Publish</li>
+</ol></div>
+</div>
+
+<div class="task"><strong>Upload 3 Shorts to YouTube</strong> <span class="task-time">15 min</span> <span class="task-ref">Y2Y3 Gap</span>
+<div class="proc">YouTube Studio → Create → Upload Shorts → each one gets: descriptive title with keywords, #Shorts tag, description linking to the full video.</div>
+</div>
+
+<div class="task"><strong>Promote Video #1 across Reddit + Facebook</strong> <span class="task-time">20 min</span> <span class="task-ref">Y3.4</span>
+<div class="proc">— r/IndianHistory: Share as discussion post (not just link drop)
+— r/MilitaryHistory: Share with interesting fact as hook
+— r/history: If they allow videos, share there too
+— 2 Facebook groups: "Military History Enthusiasts", "WW2 History"
+<br>Write genuine, discussion-starting posts — not spam. Add value first, link second.</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — FIRST FEED POST</div>
+<div class="task"><strong>Cross-post Short #1 as Instagram Reel + create cover</strong> <span class="task-time">15 min</span> <span class="task-ref">I1.4</span>
+<div class="proc">— Open Canva → duplicate Reel Cover template → change title text → export
+— Upload Short from CapCut export (NOT from YouTube — no watermark)
+— Set custom cover image
+— Write caption using I1.3 template + add 4 hashtags from Set 1
+— Publish or schedule via Meta Business Suite</div>
+</div>
+</div>
+
+<div class="ms ms-y"><strong>🚀 YOUR CONTENT IS LIVE.</strong> Video #1 is on YouTube. First Reel is on Instagram. You're now a published creator. The algorithm starts learning about your channel from this moment.</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-i">DAY 9</span><h3>Instagram Content Blitz — 4 Posts in 1 Session</h3><span class="day-num dn-a">~1.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — BATCH CONTENT</div>
+<div class="task"><strong>Create + schedule Carousel #1, Reel #2, Reel #3, Fact Card #1</strong> <span class="task-time">45 min</span> <span class="task-ref">I1.2, I1.3, I1.4</span>
+<div class="proc"><strong>Carousel:</strong> Duplicate template → "5 Things About the Indian Army in WW2" → 8 slides from Video #1 research → schedule for tomorrow
+<br><strong>Reel #2:</strong> Cross-post Short #2 with custom cover → schedule for Wed
+<br><strong>Reel #3:</strong> Cross-post Short #3 with custom cover → schedule for Fri
+<br><strong>Fact Card:</strong> "The largest volunteer army in history: 2.5 million" → schedule for Thu
+<br>All scheduled via Meta Business Suite in one batch session.</div>
+</div>
+<div class="task"><strong>Upload 3 TikToks</strong> <span class="task-time">15 min</span> <span class="task-ref">I1.4</span>
+<div class="proc">Same 3 Short videos → TikTok app → add TikTok-native captions → hashtags: #MilitaryHistory #WW2 #History #LearnOnTikTok #ForgottenHistory → schedule across next 3 days</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — CHECK BOOK 1</div>
+<div class="task"><strong>Check KDP dashboard for Book 1 status</strong> <span class="task-time">5 min</span> <span class="task-ref">K2.2</span>
+<div class="proc">Log into KDP → check if Book 1 is "Live" or still "In Review". If live, order a proof copy ($5-8) to verify print quality. Search for your book on Amazon — confirm it appears with correct title, cover, and price.</div>
+</div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — ENGAGE</div>
+<div class="task"><strong>Reply to every comment on Video #1</strong> <span class="task-time">10 min</span> <span class="task-ref">Y3.4</span>
+<div class="proc">Heart every comment. Reply with genuine, conversation-extending responses. Ask follow-up questions. Early comments are critical — the algorithm watches engagement velocity in the first 48 hours.</div>
+</div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAYS 10-11</span><h3>Video #2 Production: "The Battle That Saved India — Imphal 1944"</h3><span class="day-num dn-a">~4 hrs total</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — VIDEO #2</div>
+<div class="task"><strong>Day 10: Research + script Video #2</strong> <span class="task-time">2 hrs</span> <span class="task-ref">Y2.1, Y3.1</span>
+<div class="proc">Same workflow as Day 6: 4 Claude research prompts → compile research → write script using "Dark Revelation" structure → add [VISUAL CUE] markers → rewrite 40-60% in your voice → download 20+ archival images from copyright-safe sources.</div>
+</div>
+<div class="task"><strong>Day 11: Record voiceover + edit + thumbnail + 3 Shorts</strong> <span class="task-time">2 hrs</span> <span class="task-ref">Y2.2, Y2.3, Y2.4</span>
+<div class="proc">Same workflow as Day 7: Audacity voiceover → 7-step mastering → CapCut edit → Ken Burns on images → text overlays → music → thumbnail in Canva → 3 Shorts extracted.</div>
+</div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — DAILY</div>
+<div class="task"><strong>2-3 Stories daily</strong> (archival photo finds, "researching Imphal today" BTS, poll) <span class="task-time">5 min/day</span></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAY 12</span><h3>Publish Video #2 + Start KDP Book 2</h3><span class="day-num dn-a">~2.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE</div>
+<div class="task"><strong>Upload Video #2 + promote</strong> <span class="task-time">45 min</span><div class="proc">Same process as Day 8. Full metadata from Y3.3. Promote to Reddit + Facebook. Upload 3 Shorts.</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — BATCH</div>
+<div class="task"><strong>Cross-platform batch: 3 Reels + 1 Carousel + 1 Fact Card + 3 TikToks</strong> <span class="task-time">45 min</span> <span class="task-ref">I1.4</span>
+<div class="proc">Follow the weekly batch workflow from I1.4: Block 1 (Reels) → Block 2 (Carousel + Card) → Block 3 (TikTok). All from Video #2 content.</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 2 START</div>
+<div class="task"><strong>Begin Book 2 (E-Commerce Planner) interior</strong> <span class="task-time">60 min</span> <span class="task-ref">K2.1</span>
+<div class="proc">Canva → 6×9" → Build structure per K2.1 specs: Business goals pages, monthly planning spreads, product launch checklists, revenue tracker, marketing calendar, inventory logs. This is your blue ocean — NO quality e-commerce planner exists on Amazon (per K1.2 competitor intel). Build 40 pages today.</div></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAYS 13-14</span><h3>Complete Book 2 + Instagram Engagement Push</h3><span class="day-num dn-a">~3 hrs total</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 2 FINISH + PUBLISH</div>
+<div class="task"><strong>Complete Book 2 interior + cover + submit to KDP</strong> <span class="task-time">2 hrs</span> <span class="task-ref">K2.1, K2.2, K1.4</span>
+<div class="proc">Finish remaining pages → Design cover (E-Commerce Niche: teal/charcoal/coral per K2.2) → Export interior + cover as PDF Print → Submit to KDP with keywords and categories from K1.4 → Price: $12.99</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — GROWTH</div>
+<div class="task"><strong>Active engagement: comment on 10 military history pages</strong> <span class="task-time">20 min</span> <span class="task-ref">I1.3</span>
+<div class="proc">Find 10 pages in the military history niche (search #MilitaryHistory → visit top posts → visit those accounts). Leave genuine, substantive comments (not "great post!" — actual thoughts on the content). This gets your profile seen by their followers and signals to Instagram that you're part of this topic cluster.</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE</div>
+<div class="task"><strong>Write 1 Quora answer linking to Video #1 or #2</strong> <span class="task-time">15 min</span> <span class="task-ref">Y3.4</span>
+<div class="proc">Search Quora for "Indian soldiers WW2" or "forgotten battles WW2" → write a genuine, detailed answer → naturally link your video as a source at the end. Quora answers rank in Google search and drive traffic for months.</div></div>
+</div>
+
+<div class="ms ms-a"><strong>🏁 WEEK 2 COMPLETE.</strong> 2 YouTube videos live, 6 Shorts published, ~10 Instagram posts, Book 1 on Amazon, Book 2 submitted. Your content machine is running. From here, it's about maintaining rhythm.</div>
+</div></div>
+</div>
+
+<!-- ========== WEEK 3 ========== -->
+<div class="section" id="sec-w3">
+<div class="week-hdr"><span class="week-tag dn-y">WEEK 3</span> Days 15–21: Video #3 + KDP Book 3 + First Analytics</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAYS 15-16</span><h3>Video #3: "The Ghost Army — How Fake Tanks Won WW2"</h3><span class="day-num dn-a">~4 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — VIDEO #3 FULL PRODUCTION</div>
+<div class="task"><strong>Research → Script → Images → Voiceover → Edit → Thumbnail → 3 Shorts</strong> <span class="task-time">4 hrs over 2 days</span> <span class="task-ref">Y2.1-Y2.4, Y3.1</span>
+<div class="proc">Same production pipeline as Videos #1 and #2. This is your espionage content (15% of channel). The Ghost Army has massive viral potential — inflatable tanks, sound effects trucks, fake radio transmissions. Strong visual content. Use "Question Paradox" structure from Y2.1: "How do you win a battle with no real weapons?"</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — DAILY RHYTHM</div>
+<div class="task"><strong>Continue daily Stories + Reels from Video #2 Shorts</strong> <span class="task-time">10 min/day</span></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAY 17</span><h3>Publish Video #3 + Cross-Platform Push</h3><span class="day-num dn-a">~1.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE</div>
+<div class="task"><strong>Upload Video #3 with full optimization + promote widely</strong> <span class="task-time">45 min</span>
+<div class="proc">Standard upload process. Promote to r/MilitaryPorn, r/todayilearned (Ghost Army is perfect for TIL), Facebook groups. Upload 3 Shorts.</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM + TIKTOK</div>
+<div class="task"><strong>Weekly batch: 3 Reels + Carousel + Fact Card + 3 TikToks + Twitter thread</strong> <span class="task-time">45 min</span> <span class="task-ref">I1.4</span>
+<div class="proc">Follow I1.4 batch workflow. The Ghost Army content is extremely shareable on Instagram — inflatable tanks make great carousel content. Write Twitter thread: "5 things about WW2's strangest military unit 🧵"</div></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAYS 18-19</span><h3>KDP Book 3: Half Marathon Training Log</h3><span class="day-num dn-a">~3 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 3</div>
+<div class="task"><strong>Build full Book 3 interior + cover + submit</strong> <span class="task-time">3 hrs over 2 days</span> <span class="task-ref">K2.1, K2.2</span>
+<div class="proc"><strong>Interior (6×9, 110 pages):</strong> 16-week training plan, weekly mileage tracker, pace calculator reference, nutrition log, race day checklist, personal records page, race review pages. Use your marathon running expertise here — this is YOUR domain knowledge.
+<br><br><strong>Cover (Running Niche per K2.2):</strong> Bold red/charcoal/orange palette. Bebas Neue for title. High-energy feel. Clean, modern.
+<br><br><strong>Price: $9.99</strong> (lowest acceptable — running logs are simpler products, but still above the 60% royalty threshold).</div></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-s">DAYS 20-21</span><h3>📊 First Analytics Review + Week 4 Planning</h3><span class="day-num dn-a">~1 hr</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-s">⚙️ ALL TRACKS — ANALYTICS</div>
+<div class="task"><strong>YouTube Studio analytics review</strong> <span class="task-time">15 min</span> <span class="task-ref">Founders_Execution_Plan</span>
+<div class="proc">Check: Total views, CTR, avg view duration, subscriber count, traffic sources (how much from external/search/browse?), which video performed best, which Shorts got most views. Use the Performance Signals from the Execution Plan — are you seeing green, amber, or red signals?</div></div>
+<div class="task"><strong>Instagram Insights review</strong> <span class="task-time">10 min</span>
+<div class="proc">Check: Accounts reached, follower count, best-performing post (by saves), non-follower reach %, profile visits. Which content type drove the most follows?</div></div>
+<div class="task"><strong>KDP sales check</strong> <span class="task-time">5 min</span>
+<div class="proc">KDP dashboard → Reports → check units sold. ANY sale = proof of concept. Don't panic if sales are 0-2 — Month 1 is about getting listings live. Amazon's algorithm needs time to rank you.</div></div>
+<div class="task"><strong>Plan Week 4 adjustments</strong> <span class="task-time">15 min</span>
+<div class="proc">Based on what you've learned: Which video topic resonated most? Which Instagram post got most saves? Adjust your Video #4 topic toward what's working. If CTR is below 3%, redesign thumbnails. If retention is below 35%, improve your script hooks.</div></div>
+</div>
+</div></div>
+</div>
+
+<!-- ========== WEEK 4 ========== -->
+<div class="section" id="sec-w4">
+<div class="week-hdr"><span class="week-tag dn-y">WEEK 4</span> Days 22–30: Videos #4-5 + KDP Book 4 + Month 1 Review</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">DAYS 22-24</span><h3>Videos #4-5 Production + Publishing</h3><span class="day-num dn-a">~6 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-y">🎬 YOUTUBE — VIDEOS #4 & #5</div>
+<div class="task"><strong>Produce + publish 2 videos with full pipeline</strong> <span class="task-time">3 hrs each</span> <span class="task-ref">Y3.1</span>
+<div class="proc"><strong>Video #4:</strong> "Why 80,000 Soldiers Surrendered — Singapore 1942" (global WW2 — strategic analysis format)
+<br><strong>Video #5:</strong> "The Spy Princess — Noor Inayat Khan" (espionage — biographical story format)
+<br>Full pipeline each: Research → Script → Images → Voiceover → Edit → Thumbnail → 3 Shorts → Upload → Promote → Cross-post to Instagram/TikTok
+<br><br>By now you should be getting faster. Your template is established. The process should feel routine.</div></div>
+</div>
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM</div>
+<div class="task"><strong>Continue weekly batch for each video + daily Stories + engagement</strong> <span class="task-time">45 min × 2</span></div>
+<div class="task"><strong>First collab attempt: DM 3 history pages with collab proposal</strong> <span class="task-time">15 min</span> <span class="task-ref">I0 Roadmap</span>
+<div class="proc">Find 3 pages with 5K-20K followers in the history niche. DM: "Hey! Love your content on [specific topic]. I run @theforgottenfront — military history stories. Would you be up for a collab post? I have some incredible archival content about [topic they'd find interesting]."</div></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">DAYS 25-27</span><h3>KDP Book 4 + Video Pipeline Continuation</h3><span class="day-num dn-a">~3 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — BOOK 4</div>
+<div class="task"><strong>Build Book 4 (Family Budget Tracker) + publish</strong> <span class="task-time">3 hrs</span> <span class="task-ref">K2.1, K2.2</span>
+<div class="proc">Interior: Monthly budget tracking spreads, expense categories, savings goals, debt payoff tracker, annual overview. Cover: Dad Niche palette (cream/navy/amber). Price: $12.99. Submit to KDP.</div></div>
+</div>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-s">DAYS 28-30</span><h3>📊 MONTH 1 COMPLETE — Full Review + Month 2 Planning</h3><span class="day-num dn-a">~1.5 hrs</span></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-s">⚙️ FULL MONTH 1 REVIEW</div>
+<div class="task"><strong>Comprehensive analytics review + Month 2 planning</strong> <span class="task-time">90 min</span> <span class="task-ref">Founders_Execution_Plan</span>
+<div class="proc"><strong>Check against Achievement Matrix benchmarks:</strong>
+<br>YouTube: Are you in Worst/Base/Probable range for views & subs?
+<br>KDP: Any sales? How many books live?
+<br>Instagram: Follower count? Save rate?
+<br><br><strong>Month 2 plan:</strong> Continue 2 videos/week pace. Build KDP Books 5-8. Begin deeper Instagram engagement. If a video topic significantly outperformed, plan more content in that direction.</div></div>
+</div>
+
+<div class="ms ms-g"><strong>🏆 MONTH 1 TARGETS:</strong><br>
+📚 KDP: 4 books live on Amazon<br>
+🎬 YouTube: 5 videos + 12+ Shorts published<br>
+📱 Instagram: 20+ posts, 200-500 followers<br>
+⏱ Total time invested: ~50-60 hours<br>
+💡 You've built an entire content ecosystem from scratch in 30 days.</div>
+</div></div>
+</div>
+
+<!-- ========== MONTH 2 ========== -->
+<div class="section" id="sec-m2">
+<div class="week-hdr"><span class="week-tag dn-y">MONTH 2</span> Days 31–60: Scaling the Machine + KDP Books 5-8</div>
+
+<div class="sum-grid">
+<div class="sum-card"><h4 style="color:var(--yt)">🎬 YouTube Target</h4><p>Videos #6-10 published (10 total). 24+ Shorts. The algorithm is learning your channel. Your first breakout video may happen between #8-15.</p></div>
+<div class="sum-card"><h4 style="color:var(--kdp)">📚 KDP Target</h4><p>Books 5-8 published (8 total portfolio complete). All 3 niches covered. First sales reviews arriving. Consider first $5/day Amazon ad test.</p></div>
+<div class="sum-card"><h4 style="color:var(--ig)">📱 Instagram Target</h4><p>500-2,000 followers. Consistent daily posting. First brand inquiry possible. Affiliate links live in bio (Beacons setup with history book recommendations).</p></div>
+</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-a">WEEKLY RHYTHM</span><h3>Month 2 Repeating Weekly Pattern</h3><span class="day-num dn-a">~8-10 hrs/week</span></div>
+<div class="day-b">
+<table class="tbl">
+<tr><th>Day</th><th>Primary Tasks</th><th>Time</th></tr>
+<tr><td><strong>Mon</strong></td><td>Research + script next video. KDP book production (when building Books 5-8).</td><td>2 hrs</td></tr>
+<tr><td><strong>Tue</strong></td><td>Record voiceover + edit video. Upload + publish.</td><td>2 hrs</td></tr>
+<tr><td><strong>Wed</strong></td><td>Cross-platform batch (I1.4 workflow): 3 Reels + Carousel + Fact Card + TikToks. Promote on Reddit.</td><td>1.5 hrs</td></tr>
+<tr><td><strong>Thu</strong></td><td>Research + script second video of the week (Full Weeks) OR KDP book production.</td><td>2 hrs</td></tr>
+<tr><td><strong>Fri</strong></td><td>Record + edit + publish second video. Upload Shorts.</td><td>2 hrs</td></tr>
+<tr><td><strong>Sat</strong></td><td>Instagram engagement (comment on 10 pages). Reply to all YT comments. KDP keyword refresh if needed.</td><td>30 min</td></tr>
+<tr><td><strong>Sun</strong></td><td>5-minute analytics review. Plan next week's content.</td><td>15 min</td></tr>
+</table>
+
+<div class="proc"><strong>KDP Books 5-8 production schedule (fit into Mon/Thu slots):</strong><br>
+— Week 5-6: Book 5 (Toddler Activity Planner) + Book 6 (Marathon Training Journal)<br>
+— Week 7-8: Book 7 (Side Hustle Planner) + Book 8 (Gratitude Journal for Dads)<br>
+Each book takes ~3 hrs total: 2 hrs interior + 30 min cover + 30 min KDP submission.<br>
+After Book 8, your portfolio is complete. KDP shifts to maintenance mode (monthly keyword refresh, description optimization based on sales data).</div>
+</div></div>
+
+</div>
+
+<!-- ========== MONTH 3 ========== -->
+<div class="section" id="sec-m3">
+<div class="week-hdr"><span class="week-tag dn-y">MONTH 3</span> Days 61–90: Algorithm Acceleration + First Revenue</div>
+
+<div class="sum-grid">
+<div class="sum-card"><h4 style="color:var(--yt)">🎬 YouTube Target</h4><p>Videos #11-16 published. Algorithm has identified your niche. Best videos getting recommended. Approaching 1K subscribers (probable case). First month of potential YPP eligibility progress.</p></div>
+<div class="sum-card"><h4 style="color:var(--kdp)">📚 KDP Target</h4><p>8 books generating passive sales. Run first Amazon ad campaign ($5/day × 7 days on best-selling title). First reviews appearing. Monthly revenue: $30-80 probable.</p></div>
+<div class="sum-card"><h4 style="color:var(--ig)">📱 Instagram Target</h4><p>2,000-5,000 followers. Carousel saves driving growth. Brand partnership outreach begins. Affiliate links earning first commissions. Build I2 (Content Engine) documents.</p></div>
+</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-a">NEW ACTIVITIES</span><h3>Month 3 Additions to Your Routine</h3></div>
+<div class="day-b">
+<div class="task-group"><div class="tg-label tg-k">📚 KDP — OPTIMIZATION</div>
+<div class="task"><strong>Monthly KDP optimization (1st of every month)</strong> <span class="task-time">30 min</span>
+<div class="proc">— Check sales ranking for each book. If a book isn't selling, refresh 2-3 backend keywords.
+— Read any reviews. Adjust book descriptions based on what reviewers mention.
+— If 1-2 books are selling well, run a $5/day Amazon Sponsored Products ad for 7 days. Track ACOS (aim for under 50%).
+— Update book descriptions with "★★★★★ See what readers are saying" if you have positive reviews.</div></div>
+</div>
+
+<div class="task-group"><div class="tg-label tg-i">📱 INSTAGRAM — MONETIZATION PREP</div>
+<div class="task"><strong>Set up Beacons link-in-bio with affiliate links</strong> <span class="task-time">30 min</span> <span class="task-ref">I1.1, I3.2</span>
+<div class="proc">— Sign up at beacons.ai → customize colors (dark bg, amber accents)
+— Add links: YouTube channel, latest video, Amazon book collection, 3-5 affiliate links to history books on Amazon
+— Set up Amazon Associates account (amazon.com/associates → join) for affiliate commissions
+— Update Instagram bio link from YouTube direct to Beacons URL</div></div>
+
+<div class="task"><strong>Brand outreach — 3 DMs per week</strong> <span class="task-time">15 min/week</span>
+<div class="proc">Target: history book publishers, strategy game companies (Paradox, Total War), educational platforms. DM or email with: who you are, your audience stats, what you propose. Even at 2K followers, micro-influencer brand deals ($50-200/post) are possible in a focused niche.</div></div>
+</div>
+</div></div>
+</div>
+
+<!-- ========== MONTHS 4-6 ========== -->
+<div class="section" id="sec-m46">
+<div class="week-hdr"><span class="week-tag dn-y">MONTHS 4-6</span> Days 91–180: Scale, Monetize, Compound</div>
+
+<div class="sum-grid">
+<div class="sum-card"><h4 style="color:var(--yt)">🎬 YouTube Mo 4-6</h4><p>Videos #17-36. Channel identity fully established. YPP application (at 500 subs + 3K watch hours for Shorts monetization OR 1K subs + 4K watch hours for full monetization). Revenue: $100-400/mo (probable).</p></div>
+<div class="sum-card"><h4 style="color:var(--kdp)">📚 KDP Mo 4-6</h4><p>8 books in maintenance mode. Optimizing ads on winners. Cross-promoting via YouTube + Instagram. Monthly revenue: $150-400 (probable). Consider expanding to 4 more books if a niche is performing well.</p></div>
+<div class="sum-card"><h4 style="color:var(--ig)">📱 Instagram Mo 4-6</h4><p>5K-10K followers. Pushing for 10K Subscription threshold. Brand deals: 1-2/month. Affiliate commissions flowing. Instagram contributing $50-200/mo. Build I3 (Monetization) documents.</p></div>
+</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-a">MONTHLY TASKS</span><h3>Recurring Monthly Checklist (Months 4-6)</h3></div>
+<div class="day-b">
+<table class="tbl">
+<tr><th>Track</th><th>Monthly Task</th><th>Time</th></tr>
+<tr><td style="color:var(--yt);font-weight:700">YouTube</td><td>Review top/bottom performing videos. Double down on winners. Cut underperforming formats. Update channel art if milestone hit.</td><td>30 min</td></tr>
+<tr><td style="color:var(--yt);font-weight:700">YouTube</td><td>Apply for YPP when eligible. If approved, enable all monetization: ads, memberships, Super Chat.</td><td>15 min</td></tr>
+<tr><td style="color:var(--kdp);font-weight:700">KDP</td><td>Refresh keywords on underperforming books. Optimize ad spend. Check competitor pricing. Consider seasonal adjustments.</td><td>30 min</td></tr>
+<tr><td style="color:var(--ig);font-weight:700">Instagram</td><td>Update bio with milestones. Refresh hashtag sets (I1.3 monthly process). Send 5+ brand outreach emails. Review which content type drives most follows.</td><td>30 min</td></tr>
+<tr><td style="color:var(--ig);font-weight:700">Instagram</td><td>At 10K followers: Enable Subscriptions ($4.99/mo). Create subscriber-only content. Enable Gifts on Reels.</td><td>30 min (one-time)</td></tr>
+<tr><td style="color:var(--setup);font-weight:700">All</td><td>Monthly revenue review: YouTube ads + KDP royalties + Instagram brand deals + affiliate commissions. Track against Achievement Matrix scenarios.</td><td>15 min</td></tr>
+</table>
+</div></div>
+
+<div class="ms ms-g"><strong>📊 MONTH 6 REVENUE TARGET (Probable Case):</strong><br>
+🎬 YouTube: $100-400/mo (ad revenue + potential sponsorships)<br>
+📚 KDP: $150-400/mo (8 books × 20-50 sales/book × $3.79-5.35 royalty)<br>
+📱 Instagram: $50-200/mo (brand deals + affiliates + gifts)<br>
+<strong>Combined: $300-1,000/mo — hitting the $500-1K target range</strong></div>
+</div>
+
+<!-- ========== QUICK REFERENCE ========== -->
+<div class="section" id="sec-ref">
+<div class="week-hdr"><span class="week-tag dn-s">REFERENCE</span> Quick-Reference Checklists</div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-y">CHECKLIST</span><h3>Per-Video Production Checklist (use every time)</h3></div>
+<div class="day-b">
+<table class="tbl">
+<tr><th>☐</th><th>Step</th><th>Doc Reference</th><th>Time</th></tr>
+<tr><td>☐</td><td>Research with 4 Claude prompts</td><td>Y2.1</td><td>30 min</td></tr>
+<tr><td>☐</td><td>Write script (~2,100 words). Rewrite 40-60%.</td><td>Y2.1</td><td>45 min</td></tr>
+<tr><td>☐</td><td>Download 20+ copyright-safe archival images</td><td>Y2.2</td><td>20 min</td></tr>
+<tr><td>☐</td><td>Record voiceover + 7-step mastering</td><td>Y2.3</td><td>30 min</td></tr>
+<tr><td>☐</td><td>Edit in CapCut: audio + images + text + music + outro</td><td>Y2.2</td><td>60 min</td></tr>
+<tr><td>☐</td><td>Create thumbnail in Canva</td><td>Y2.4</td><td>10 min</td></tr>
+<tr><td>☐</td><td>Script + record + edit 3 Shorts</td><td>Y2Y3 Gap</td><td>20 min</td></tr>
+<tr><td>☐</td><td>Upload to YouTube with Y3.3 metadata</td><td>Y3.3</td><td>15 min</td></tr>
+<tr><td>☐</td><td>Promote: Reddit, Facebook, Quora</td><td>Y3.4</td><td>15 min</td></tr>
+<tr><td>☐</td><td>Cross-post batch: 3 IG Reels + Carousel + Fact Card + 3 TikToks</td><td>I1.4</td><td>45 min</td></tr>
+</table>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-k">CHECKLIST</span><h3>Per-Book KDP Checklist (use for each book)</h3></div>
+<div class="day-b">
+<table class="tbl">
+<tr><th>☐</th><th>Step</th><th>Doc Reference</th><th>Time</th></tr>
+<tr><td>☐</td><td>Create interior in Canva (6×9") per K2.1 specs</td><td>K2.1</td><td>2 hrs</td></tr>
+<tr><td>☐</td><td>Download KDP cover template (cover calculator)</td><td>K2.2</td><td>2 min</td></tr>
+<tr><td>☐</td><td>Design cover in Canva per K2.2 niche blueprint</td><td>K2.2</td><td>30 min</td></tr>
+<tr><td>☐</td><td>Export interior + cover as PDF Print</td><td>K2.1</td><td>5 min</td></tr>
+<tr><td>☐</td><td>KDP submission: title, description, keywords, categories, price</td><td>K1.4</td><td>15 min</td></tr>
+<tr><td>☐</td><td>Preview in KDP Previewer — check margins, cover alignment</td><td>K2.2</td><td>5 min</td></tr>
+<tr><td>☐</td><td>Publish — wait 24-72 hrs for review</td><td>—</td><td>1 min</td></tr>
+</table>
+</div></div>
+
+<div class="day"><div class="day-h" onclick="tog(this)"><span class="day-num dn-s">REFERENCE</span><h3>Document Map — Which Doc for What</h3></div>
+<div class="day-b">
+<table class="tbl">
+<tr><th>I Need To...</th><th>Open This Document</th></tr>
+<tr><td>Choose which book to build next</td><td>K1.3 Infrastructure (8-book priority list)</td></tr>
+<tr><td>Know what pages go in each book</td><td>K2.1 Interior Template Library</td></tr>
+<tr><td>Design a book cover</td><td>K2.2 Cover Design System</td></tr>
+<tr><td>Find keywords/categories for a book</td><td>K1.4 Keyword Strategy</td></tr>
+<tr><td>Write a YouTube script</td><td>Y2.1 Script Writing Framework</td></tr>
+<tr><td>Find copyright-safe images</td><td>Y2.2 Visual Production Pipeline</td></tr>
+<tr><td>Master my voiceover audio</td><td>Y2.3 Audio/Voiceover System</td></tr>
+<tr><td>Make a thumbnail</td><td>Y2.4 Thumbnail Design System</td></tr>
+<tr><td>Know which video to make next</td><td>Y3.1 First 10 Videos Plan</td></tr>
+<tr><td>Optimize my YouTube title/desc/tags</td><td>Y3.3 SEO & Metadata</td></tr>
+<tr><td>Promote my video</td><td>Y3.4 Community & Monetization</td></tr>
+<tr><td>Set up Instagram profile</td><td>I1.1 Profile Optimization</td></tr>
+<tr><td>Create Instagram post templates</td><td>I1.2 Visual Identity & Feed</td></tr>
+<tr><td>Choose hashtags</td><td>I1.3 Hashtag & SEO Strategy</td></tr>
+<tr><td>Cross-post to all platforms</td><td>I1.4 Cross-Platform Sync</td></tr>
+<tr><td>Check if I'm on track</td><td>Founders Execution Plan (Performance Signals tab)</td></tr>
+<tr><td>See revenue projections</td><td>Founders Execution Plan (Achievement Matrix tab)</td></tr>
+</table>
+</div></div>
+
+</div>
+
+</div>
+
+<div class="foot">Founder's Complete Task Sheet — 180-Day Execution Manual · 3 Tracks · 60 Subprojects · All Processes Detailed · March 2026</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/e
