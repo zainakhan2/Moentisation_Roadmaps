@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>First 20 YouTube Videos — The Forgotten Front</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#0A0A0A;color:#E6EDF3;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:20px}
+.hero{text-align:center;padding:40px 20px 30px;border-bottom:2px solid #78350F;margin-bottom:20px}
+.hero h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#F59E0B;letter-spacing:1px}
+.hero p{color:#8B949E;margin-top:6px;font-size:0.9rem}
+.summary{background:#78350F;border-radius:10px;padding:20px;margin:20px 0;text-align:center}
+.summary h2{color:#FCD34D;font-size:1.1rem;margin-bottom:8px}
+.nums{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:12px}
+.n{text-align:center}.n b{display:block;font-size:1.5rem;color:#FCD34D}.n span{font-size:0.65rem;color:#FDE68A;text-transform:uppercase;letter-spacing:1px}
+.sched{background:#161B22;border:1px solid #21262D;border-radius:10px;padding:16px 20px;margin:20px 0;overflow-x:auto}
+.sched h2{font-size:1rem;font-weight:700;color:#F59E0B;margin-bottom:10px}
+.sched table{width:100%;border-collapse:collapse;font-size:0.78rem}
+.sched th{text-align:left;color:#8B949E;padding:4px 8px;border-bottom:1px solid #21262D;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:0.65rem}
+.sched td{padding:6px 8px;border-bottom:1px solid #161B22;color:#C9D1D9}
+.sched tr:hover{background:#111318}
+.sched .sa{color:#F59E0B}.sched .gl{color:#4DA6FF}.sched .sp{color:#A78BFA}
+.phase{margin:30px 0 10px;padding:10px 16px;border-radius:8px;font-size:1rem;font-weight:700;letter-spacing:1px}
+.p-id{background:#78350F;color:#FCD34D}.p-br{background:#4C1D95;color:#C4B5FD}.p-al{background:#065F46;color:#6EE7B7}.p-mo{background:#1E3A5F;color:#93C5FD}.p-au{background:#831843;color:#F9A8D4}
+.vid{background:#111318;border:1px solid #21262D;border-radius:12px;margin:12px 0;overflow:hidden;transition:border-color 0.2s}
+.vid:hover{border-color:#F59E0B}
+.vid-head{padding:14px 18px;display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.vid-num{width:40px;height:40px;border-radius:8px;background:#78350F;color:#F59E0B;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;flex-shrink:0}
+.vid-info{flex:1;min-width:0}
+.vid-title{font-size:0.95rem;font-weight:700;color:#E6EDF3}
+.vid-sub{font-size:0.72rem;color:#8B949E;margin-top:2px}
+.vm-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.vm{font-size:0.6rem;padding:2px 7px;border-radius:4px;font-weight:600;letter-spacing:0.3px}
+.vm-sa{background:#78350F25;color:#F59E0B;border:1px solid #78350F}
+.vm-gl{background:#1E3A5F25;color:#4DA6FF;border:1px solid #1E3A5F}
+.vm-sp{background:#4C1D9525;color:#A78BFA;border:1px solid #4C1D95}
+.vm-t{background:#161B22;color:#8B949E;border:1px solid #21262D}
+.vm-hr{background:#DC262615;color:#F87171;border:1px solid #DC262640}
+.vm-date{background:#065F4620;color:#6EE7B7;border:1px solid #065F46}
+.chevron{color:#484F58;transition:transform 0.2s;font-size:0.8rem;margin-top:4px}
+.vid.open .chevron{transform:rotate(90deg)}.vid.open .vid-body{display:block}
+.vid-body{padding:0 18px 18px;display:none}
+.hook{background:#78350F20;border:1px solid #78350F;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:0.85rem;color:#FCD34D;font-style:italic}
+.fl{font-size:0.68rem;color:#F59E0B;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin:8px 0 3px}
+.fv{font-size:0.82rem;color:#C9D1D9;margin-bottom:6px}
+.kw{display:inline-block;font-size:0.68rem;padding:2px 7px;background:#161B22;border:1px solid #21262D;border-radius:4px;color:#8B949E;margin:2px}
+.shorts-box{background:#DC262610;border:1px solid #DC262630;border-radius:8px;padding:10px 14px;margin:8px 0}
+.shorts-box h4{font-size:0.68rem;color:#F87171;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.si{font-size:0.8rem;color:#C9D1D9;padding:3px 0}.si b{color:#F87171}
+.rat{background:#2D1F00;border:1px solid #78350F;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:0.8rem;color:#FCD34D}
+.back{text-align:center;padding:30px;color:#F59E0B;text-decoration:none;font-size:0.85rem;display:block}
+.mix{background:#161B22;border:1px solid #21262D;border-radius:10px;padding:16px 20px;margin:20px 0}
+.mix h2{font-size:1rem;font-weight:700;color:#F59E0B;margin-bottom:8px}
+.mix p{font-size:0.82rem;color:#8B949E;margin:6px 0}
+</style></head><body><div id="tff-nav" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0D1117;border-bottom:2px solid #D97706;padding:6px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:'Segoe UI',sans-serif;font-size:12px">
+<a href="index.html" style="color:#F59E0B;text-decoration:none;font-weight:700">☰ Portal</a>
+<span style="color:#21262D">|</span>
+<a href="Founders_Task_Tracker.html" style="color:#10B981;text-decoration:none">✅ Tasks</a>
+<a href="First_20_YouTube_Videos.html" style="color:#F59E0B;text-decoration:none">🎬 Videos</a>
+<a href="First_20_KDP_Books.html" style="color:#10B981;text-decoration:none">📚 Books</a>
+<a href="Video_to_Book_Feasibility.html" style="color:#A78BFA;text-decoration:none">📊 Feasibility</a>
+<a href="Founders_Execution_Plan.html" style="color:#4DA6FF;text-decoration:none">⚡ Plan</a>
+</div><div style="height:38px"></div>
+<div class="wrap">
+<div class="hero"><h1>First 20 YouTube Videos</h1>
+<p>The Forgotten Front &mdash; Military History &middot; 11-week schedule &middot; Production time &amp; upload dates for each video</p></div>
+<div class="summary"><h2>Production Overview</h2>
+<div class="nums">
+<div class="n"><b>20</b><span>Long-form</span></div>
+<div class="n"><b>60</b><span>Shorts</span></div>
+<div class="n"><b>83.5h</b><span>Total Prod.</span></div>
+<div class="n"><b>11 weeks</b><span>Timeline</span></div>
+<div class="n"><b>$7-15</b><span>CPM Range</span></div>
+</div></div><div class="sched"><h2>Upload Schedule &mdash; 2 Videos/Week (Tue &amp; Thu)</h2><table><tr><th>#</th><th>Title</th><th>Pillar</th><th>Prod Time</th><th>Upload</th></tr><tr><td style="color:#F59E0B;font-weight:700">1</td><td>The 2.5 Million Soldiers History Forgot | Indian Army i...</td><td class="sa">SOUTH ASIAN</td><td>5.5h</td><td>Week 2, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">2</td><td>The Battle That Saved India — Imphal 1944 | WW2's Forgo...</td><td class="sa">SOUTH ASIAN</td><td>4.5h</td><td>Week 2, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">3</td><td>The Ghost Army — How Fake Tanks and Sound Effects Foole...</td><td class="sp">ESPIONAGE</td><td>4h</td><td>Week 3, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">4</td><td>Why 80,000 Soldiers Surrendered — The Fall of Singapore...</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 3, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">5</td><td>The Spy Princess — Noor Inayat Khan: SOE's Most Dangero...</td><td class="sp">ESPIONAGE</td><td>4h</td><td>Week 4, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">6</td><td>The Night Witches — How 80 Women Terrorized the Nazi Ar...</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 4, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">7</td><td>The Bridge on the River Kwai Was Real — And Far Worse T...</td><td class="gl">GLOBAL</td><td>4.5h</td><td>Week 5, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">8</td><td>Operation Mincemeat — The Dead Man Who Changed WW2</td><td class="sp">ESPIONAGE</td><td>3.5h</td><td>Week 5, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">9</td><td>The Gurkhas — The Most Feared Soldiers in History</td><td class="sa">SOUTH ASIAN</td><td>4h</td><td>Week 6, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">10</td><td>The Most Dangerous Mission in WW2 — The Dambusters Raid</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 6, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">11</td><td>The Siege of Jadotville — 150 Irish Soldiers vs 3,000 M...</td><td class="gl">GLOBAL</td><td>3.5h</td><td>Week 7, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">12</td><td>The Forgotten Female Spies of WW2 — SOE's Secret Army</td><td class="sp">ESPIONAGE</td><td>4.5h</td><td>Week 7, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">13</td><td>The Man Who Saved the World Twice — Vasili Arkhipov</td><td class="gl">GLOBAL</td><td>3.5h</td><td>Week 8, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">14</td><td>The First Victoria Cross — The Sailor Who Threw a Live ...</td><td class="gl">GLOBAL</td><td>4.5h</td><td>Week 8, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">15</td><td>Dunkirk From the Other Side — The Germans Who Let Them ...</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 9, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">16</td><td>The Forgotten Army — Subhas Chandra Bose and the Indian...</td><td class="sa">SOUTH ASIAN</td><td>5h</td><td>Week 9, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">17</td><td>The Tunnel Kings — The True Story of The Great Escape</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 10, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">18</td><td>The Double Agent Who Won D-Day — Juan Pujol Garcia (Age...</td><td class="sp">ESPIONAGE</td><td>4h</td><td>Week 10, Thursday</td></tr><tr><td style="color:#F59E0B;font-weight:700">19</td><td>The Greatest Raid of All — How 611 Commandos Destroyed ...</td><td class="gl">GLOBAL</td><td>4.5h</td><td>Week 11, Tuesday</td></tr><tr><td style="color:#F59E0B;font-weight:700">20</td><td>The Most Decorated Soldier You've Never Heard Of — Audi...</td><td class="gl">GLOBAL</td><td>4h</td><td>Week 11, Thursday</td></tr><tr style="border-top:2px solid #21262D"><td></td><td style="font-weight:700;color:#F59E0B">TOTAL</td><td></td><td style="font-weight:700;color:#F59E0B">83.5h</td><td style="color:#6EE7B7">~7.6h/week</td></tr></table></div><div class="phase p-id">VIDEOS 1-3 &mdash; IDENTITY (South Asian Focus)</div><div class="vid" id="v1">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">1</div>
+<div class="vid-info">
+<div class="vid-title">The 2.5 Million Soldiers History Forgot | Indian Army in WW2</div>
+<div class="vid-sub">The largest volunteer army in history that nobody talks about</div>
+<div class="vm-row">
+<span class="vm vm-sa">SOUTH ASIAN</span>
+<span class="vm vm-hr">5.5h production</span>
+<span class="vm vm-date">Week 2, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In 1939, the largest volunteer army in human history began assembling. Not in America. Not in Britain. In India. 2.5 million men — none of whom were fighting for their own freedom.</div>
+<div class="fl">Why This Topic</div><div class="fv">Channel thesis in one video. Establishes identity. South Asian diaspora (1.8B people) = massive sharing. No competitor covers this comprehensively.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Hook stat (2.5M volunteers from a colonized nation). Act 2: Chronological — recruitment, North Africa, Burma, Imphal/Kohima, Italy, INA paradox. Act 3: Post-war betrayal, independence within 2 years.</div>
+<div class="fl">Key Facts</div><div class="fv">2.5M volunteers (largest ever), 87K killed, fought every front, Imphal = Stalingrad of East, 36 Victoria Crosses, INA under Bose, Red Fort Trials sparked independence.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Template A: Dark archival photo Indian soldiers marching. Red badge UNTOLD. Text: 2.5 MILLION FORGOTTEN.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Indian army WW2</span><span class="kw">India World War 2</span><span class="kw">forgotten soldiers</span><span class="kw">Indian soldiers history</span><span class="kw">colonial army</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Hook stat — 2.5M volunteers, none fighting for own freedom (30s)</div><div class="si"><b>S2:</b> Imphal battle moment — holding the line against 150K Japanese (45s)</div><div class="si"><b>S3:</b> Emotional close — fought for empire that wouldn't free them (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.4h &middot; Script: 1.4h &middot; Voiceover: 0.7h &middot; Edit: 1.5h &middot; Thumb + Shorts + Upload: 0.6h</div>
+<div class="rat">First video always takes longest. Block a full day. External promotion critical.</div>
+</div></div><div class="vid" id="v2">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">2</div>
+<div class="vid-info">
+<div class="vid-title">The Battle That Saved India — Imphal 1944 | WW2's Forgotten Front</div>
+<div class="vid-sub">Deep-dive into the most dramatic story from Video #1</div>
+<div class="vm-row">
+<span class="vm vm-sa">SOUTH ASIAN</span>
+<span class="vm vm-hr">4.5h production</span>
+<span class="vm vm-date">Week 2, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In 1944, Japan launched its most ambitious offensive. The target: India itself. If Imphal fell, the entire subcontinent was open.</div>
+<div class="fl">Why This Topic</div><div class="fv">Deep-dive into V1's best story. Series-building effect. Imphal 1944 has solid search with low competition.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Japanese Operation U-Go, Bose's INA, desperate stakes. Act 2: 80K troops surrounded, Kohima tennis court battle, monsoon, supply collapse. Act 3: 50K Japanese dead, significance for independence.</div>
+<div class="fl">Key Facts</div><div class="fv">Operation U-Go March-July 1944, 80K troops surrounded, Kohima = smallest battlefield, 50K+ Japanese dead (most from starvation).</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Map of Imphal with red Japanese advance arrows. Red badge FORGOTTEN. Text: THE BATTLE THAT SAVED INDIA.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Battle of Imphal</span><span class="kw">Kohima 1944</span><span class="kw">Burma campaign WW2</span><span class="kw">forgotten battles</span><span class="kw">Japanese invasion India</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> If this city fell, Japan invades India (30s)</div><div class="si"><b>S2:</b> Kohima tennis court — smallest battlefield in history (45s)</div><div class="si"><b>S3:</b> 50K Japanese dead, most from starvation (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.1h &middot; Script: 1.1h &middot; Voiceover: 0.5h &middot; Edit: 1.3h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">Should outperform V1 — returning viewers key.</div>
+</div></div><div class="vid" id="v3">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">3</div>
+<div class="vid-info">
+<div class="vid-title">The Ghost Army — How Fake Tanks and Sound Effects Fooled Hitler</div>
+<div class="vid-sub">1,100 artists, inflatable tanks, and the most creative deception in military history</div>
+<div class="vm-row">
+<span class="vm vm-sp">ESPIONAGE</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 3, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In WW2, the US Army recruited 1,100 artists, sound engineers, and radio operators for the strangest mission in military history — to fight the Germans with inflatable tanks and theatrical performances.</div>
+<div class="fl">Why This Topic</div><div class="fv">Palate cleanser after 2 SA videos. Highest viral potential. Inflatable tanks = visual gold. Classified until 1996. Broad appeal.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Recruitment — artists, designers, sound engineers. Act 2: Inflatable Shermans, sound trucks, fake radio, Operation Viersen (600 rubber tanks). Act 3: Classified 52 years, members became famous, Congressional Gold Medal 2022.</div>
+<div class="fl">Key Facts</div><div class="fv">23rd HQ Special Troops, 1100 men, inflatable tanks, sound trucks, 20+ operations, classified until 1996.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Inflatable tank being inflated. Text: FAKE TANKS WON WW2. Red badge: CLASSIFIED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Ghost Army WW2</span><span class="kw">inflatable tanks</span><span class="kw">military deception</span><span class="kw">Operation Fortitude</span><span class="kw">secret army</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Soldiers inflating a rubber Sherman tank (30s)</div><div class="si"><b>S2:</b> 600 fake tanks at the Rhine crossing (45s)</div><div class="si"><b>S3:</b> Many became famous designers and painters (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">BREAKOUT candidate. Share to r/todayilearned, r/interestingasfuck.</div>
+</div></div><div class="phase p-br">VIDEOS 4-6 &mdash; BREADTH (Global + Espionage)</div><div class="vid" id="v4">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">4</div>
+<div class="vid-info">
+<div class="vid-title">Why 80,000 Soldiers Surrendered — The Fall of Singapore 1942</div>
+<div class="vid-sub">The largest British military surrender and the myth of the impregnable fortress</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span><span class="vm vm-gl">SOUTH ASIAN ANGLE</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 3, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">The most heavily defended fortress in Asia fell in 7 days. Not because the enemy was stronger — but because the defenders couldn't imagine losing.</div>
+<div class="fl">Why This Topic</div><div class="fv">Globally recognized. SA angle: 40K Indian POWs, many recruited by Bose for INA. Bicycle blitzkrieg = fascinating tactical story.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Fortress myth — guns pointing seaward, racist underestimation. Act 2: Bicycle blitzkrieg, Yamashita's bluff (outnumbered but demands surrender). Act 3: 80K+ POWs, Changi, Burma Railway, Churchill worst disaster.</div>
+<div class="fl">Key Facts</div><div class="fv">Japanese bicycle blitzkrieg, 80K+ POWs (40K Indian), Yamashita outnumbered 3:1, Churchill worst disaster.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">British soldiers surrendering. Text: 80,000 SURRENDERED. Red badge: 7 DAYS.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Fall of Singapore</span><span class="kw">Singapore 1942</span><span class="kw">largest British surrender</span><span class="kw">Yamashita</span><span class="kw">WW2 Pacific</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Bicycle blitzkrieg — Japanese cycling through jungle (30s)</div><div class="si"><b>S2:</b> Yamashita's bluff — demanded surrender while outnumbered (45s)</div><div class="si"><b>S3:</b> Churchill — the worst disaster (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">By V4, production should be streamlined. Target 3-4 hours.</div>
+</div></div><div class="vid" id="v5">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">5</div>
+<div class="vid-info">
+<div class="vid-title">The Spy Princess — Noor Inayat Khan: SOE's Most Dangerous Agent</div>
+<div class="vid-sub">Indian-American-French SOE agent, last radio operator in occupied Paris, executed at Dachau</div>
+<div class="vm-row">
+<span class="vm vm-sp">ESPIONAGE</span><span class="vm vm-gl">SOUTH ASIAN HERITAGE</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 4, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">She was a children's book author, a musician, and a descendant of an Indian warrior king. In 1943, the British sent her on the most dangerous mission in occupied France — and she never came home.</div>
+<div class="fl">Why This Topic</div><div class="fv">CHARACTER story — different tone. Noor's unique identity intersects multiple audiences. Female protagonist broadens demographics. Emotionally devastating arc.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Tipu Sultan lineage, musician, author, pacifist becoming spy. Act 2: SOE training, deployed to Paris as Madeleine, last radio operator, months alone, betrayed. Act 3: Gestapo, Pforzheim, Dachau. George Cross + Croix de Guerre.</div>
+<div class="fl">Key Facts</div><div class="fv">Great-great-granddaughter of Tipu Sultan, SOE wireless operator, only operator left in Paris, classified highly dangerous, executed Dachau 1944.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Noor's portrait. Text: THE SPY PRINCESS. Red badge: TOP SECRET.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Noor Inayat Khan</span><span class="kw">SOE agents WW2</span><span class="kw">female spies</span><span class="kw">spy princess</span><span class="kw">Special Operations Executive</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> A children's book author became Britain's most dangerous spy (30s)</div><div class="si"><b>S2:</b> Last radio operator in occupied Paris — alone for months (45s)</div><div class="si"><b>S3:</b> Her final word was Liberté (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Slower pacing, strings/piano music. This video should make people cry.</div>
+</div></div><div class="vid" id="v6">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">6</div>
+<div class="vid-info">
+<div class="vid-title">The Night Witches — How 80 Women Terrorized the Nazi Army</div>
+<div class="vid-sub">Soviet all-female bomber regiment flying obsolete biplanes — 23,000 combat sorties</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 4, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">They flew plywood biplanes from World War One. They cut their engines and glided silently over German positions. The Germans called them the Night Witches — and they were terrified.</div>
+<div class="fl">Why This Topic</div><div class="fv">Proven high-interest topic. Female protagonists broaden audience. Women flying WW1 biplanes against the Luftwaffe = inherently compelling.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Marina Raskova petitions Stalin, recruits women 17-26, Po-2 biplanes (canvas, no guns, no parachutes). Act 2: 23K+ sorties, 8-18 missions per night, engine-cut glide technique, 30K bombs. Act 3: 23 Hero medals, 30 pilots killed, post-war obscurity.</div>
+<div class="fl">Key Facts</div><div class="fv">588th Night Bomber Regiment, Po-2 biplanes, 23K sorties, 8-18 missions/night, cut engines to glide silently.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Young female pilot next to biplane. Text: 80 WOMEN vs THE NAZI ARMY. Red badge: NIGHT WITCHES.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Night Witches</span><span class="kw">female pilots WW2</span><span class="kw">Soviet women soldiers</span><span class="kw">588th regiment</span><span class="kw">women in war</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Cutting the engine and gliding silently over positions (30s)</div><div class="si"><b>S2:</b> 23,000 sorties in plywood biplanes (30s)</div><div class="si"><b>S3:</b> Germans called them Night Witches (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Action and badassery after V5's emotion.</div>
+</div></div><div class="phase p-al">VIDEOS 7-10 &mdash; ALGORITHM BAIT (Famous Events, Your Angle)</div><div class="vid" id="v7">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">7</div>
+<div class="vid-info">
+<div class="vid-title">The Bridge on the River Kwai Was Real — And Far Worse Than the Movie</div>
+<div class="vid-sub">The Burma Railway, 100,000+ deaths, and the true story Hollywood couldn't tell</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span><span class="vm vm-gl">SOUTH ASIAN ANGLE</span>
+<span class="vm vm-hr">4.5h production</span>
+<span class="vm vm-date">Week 5, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">You've seen the movie. You've heard the whistle. But the real story is one Hollywood couldn't tell — because the truth was too horrifying for cinema.</div>
+<div class="fl">Why This Topic</div><div class="fv">MASSIVE search volume. Real vs movie angle. SA connection: thousands of Indian POWs. Bridges entertainment + education.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Movie myth vs reality. Act 2: Burma-Siam railway, 60K Allied POWs + 200K Asian laborers, conditions, death toll. Act 3: War crimes, the railway today, what the movie got wrong.</div>
+<div class="fl">Key Facts</div><div class="fv">415km railway, 60K Allied POWs, 200K+ Asian laborers, 100K+ deaths, multiple bridges not one.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Railway through jungle. Text: THE REAL BRIDGE ON THE RIVER KWAI. Red badge: WORSE THAN THE MOVIE.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Bridge River Kwai real story</span><span class="kw">Burma Railway</span><span class="kw">death railway</span><span class="kw">WW2 POW camps</span><span class="kw">Thailand Burma</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> The movie got almost everything wrong (30s)</div><div class="si"><b>S2:</b> 200,000 Asian laborers — the part nobody talks about (45s)</div><div class="si"><b>S3:</b> The railway still exists — you can ride it today (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.1h &middot; Script: 1.1h &middot; Voiceover: 0.5h &middot; Edit: 1.3h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">Movie tie-in drives search traffic.</div>
+</div></div><div class="vid" id="v8">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">8</div>
+<div class="vid-info">
+<div class="vid-title">Operation Mincemeat — The Dead Man Who Changed WW2</div>
+<div class="vid-sub">British intelligence used a corpse with fake documents to fool Hitler</div>
+<div class="vm-row">
+<span class="vm vm-sp">ESPIONAGE</span>
+<span class="vm vm-hr">3.5h production</span>
+<span class="vm vm-date">Week 5, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In 1943, a dead body washed up on a Spanish beach carrying top-secret invasion plans. The plans were fake. The body was real. And the operation saved thousands of lives.</div>
+<div class="fl">Why This Topic</div><div class="fv">2022 movie creates search demand. Classic espionage. So bizarre it sounds fictional.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Montagu and Cholmondeley, finding a body, creating Major William Martin. Act 2: Fake plans, dropping body off Spain, Germans take the bait. Act 3: Hitler moves troops, Sicily succeeds.</div>
+<div class="fl">Key Facts</div><div class="fv">Ewen Montagu/Cholmondeley, body of homeless Welsh man, Major Martin identity, fake love letters, Hitler relocated divisions from Sicily.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Briefcase handcuffed to wrist on beach. Text: THE DEAD MAN WHO FOOLED HITLER. Red badge: CLASSIFIED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Operation Mincemeat</span><span class="kw">WW2 deception</span><span class="kw">dead man fooled Hitler</span><span class="kw">Allied intelligence</span><span class="kw">Sicily invasion</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Dead man on beach carrying fake invasion plans (30s)</div><div class="si"><b>S2:</b> They gave him a girlfriend, love letters, and theater stubs (40s)</div><div class="si"><b>S3:</b> Hitler moved his army based on documents from a dead man (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 0.9h &middot; Script: 0.9h &middot; Voiceover: 0.4h &middot; Edit: 1.0h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Thriller pacing makes this engaging to write.</div>
+</div></div><div class="vid" id="v9">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">9</div>
+<div class="vid-info">
+<div class="vid-title">The Gurkhas — The Most Feared Soldiers in History</div>
+<div class="vid-sub">Nepal's legendary warriors and 200 years of unbroken military service</div>
+<div class="vm-row">
+<span class="vm vm-sa">SOUTH ASIAN</span><span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 6, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">There's an old saying: if a man says he is not afraid of dying, he is either lying or he is a Gurkha. For 200 years, these warriors from Nepal have been the most feared soldiers on any battlefield.</div>
+<div class="fl">Why This Topic</div><div class="fv">Bridges SA and Global pillars perfectly. Massive search interest. Stories span 200 years. Kukri knife and Gurkha bravery stories are inherently viral.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Anglo-Nepalese War — British so impressed they recruited their enemy. The kukri. Act 2: Greatest stories — Lachhiman Gurung (fought alone one arm), Dipprasad Pun (30 Taliban alone), Bishnu Shrestha (40 train robbers). Act 3: Modern Gurkhas, legacy.</div>
+<div class="fl">Key Facts</div><div class="fv">200+ years service, 13 Victoria Crosses, Lachhiman Gurung lost arm fought alone, still serve in British/Indian armies.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Gurkha with kukri knife. Text: THE MOST FEARED SOLDIERS ALIVE. Red badge: 200 YEARS.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Gurkha soldiers</span><span class="kw">most feared military</span><span class="kw">Gurkha bravery</span><span class="kw">kukri knife</span><span class="kw">Nepal warriors</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> If a man says he is not afraid of dying — he is a Gurkha (30s)</div><div class="si"><b>S2:</b> Lachhiman Gurung fought alone, one arm, killed 31 enemy (45s)</div><div class="si"><b>S3:</b> Bishnu Shrestha vs 40 armed robbers — with only a kukri (40s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Individual bravery stories = high engagement. Each Short can go viral.</div>
+</div></div><div class="vid" id="v10">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">10</div>
+<div class="vid-info">
+<div class="vid-title">The Most Dangerous Mission in WW2 — The Dambusters Raid</div>
+<div class="vid-sub">Barnes Wallis's bouncing bomb and 617 Squadron's impossible mission</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 6, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">They had to fly at exactly 60 feet above water. At exactly 232 mph. And release a bomb that had to bounce across a lake and sink against a dam. 53 of 133 airmen never came home.</div>
+<div class="fl">Why This Topic</div><div class="fv">Globally recognized, proven search demand. Engineering + heroism. 40% casualty rate. Strong visual potential.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Barnes Wallis bouncing bomb, 617 Squadron formation, practice. Act 2: Raid May 16-17 1943, Mohne and Eder dams breached. Act 3: 53 killed, flooding, strategic debate, legacy.</div>
+<div class="fl">Key Facts</div><div class="fv">Upkeep bomb, 19 Lancasters, 133 airmen, 60 feet, 232 mph, Mohne + Eder breached, 53 killed.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Lancaster bomber low over water. Text: THE BOUNCING BOMB. Red badge: 60 FEET.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Dambusters raid</span><span class="kw">bouncing bomb WW2</span><span class="kw">617 Squadron</span><span class="kw">Barnes Wallis</span><span class="kw">dam busters</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> 60 feet, 232 mph, bomb had to bounce (30s)</div><div class="si"><b>S2:</b> The moment the Mohne Dam burst (30s)</div><div class="si"><b>S3:</b> 53 of 133 airmen never came home (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Engineering diagrams add unique value.</div>
+</div></div><div class="phase p-mo">VIDEOS 11-15 &mdash; MOMENTUM (Diversify Eras &amp; Regions)</div><div class="vid" id="v11">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">11</div>
+<div class="vid-info">
+<div class="vid-title">The Siege of Jadotville — 150 Irish Soldiers vs 3,000 Mercenaries</div>
+<div class="vid-sub">The most heroic last stand you've never heard of — Congo 1961</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">3.5h production</span>
+<span class="vm vm-date">Week 7, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In 1961, 150 Irish UN peacekeepers were surrounded by 3,000 mercenaries. No reinforcements. Limited ammo. Zero air support. What happened next was one of the greatest defensive stands in military history.</div>
+<div class="fl">Why This Topic</div><div class="fv">Netflix movie raised awareness. Perfect underdog narrative. Irish audience = passionate sharers. UN angle is different from WW2.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Congo Crisis, Irish UN mission, Company A at Jadotville. Act 2: Outnumbered 20:1, Quinlan's tactics, multiple assaults repelled, ZERO Irish killed. Act 3: Forced surrender (no ammo), decades of shame, vindication 2016.</div>
+<div class="fl">Key Facts</div><div class="fv">Commandant Quinlan, 150 vs 3000, 5-day siege, zero Irish KIA, 300+ enemy killed, honored 2016 after 55 years.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Irish soldiers defensive position. Text: 150 vs 3,000. Red badge: ZERO KILLED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Siege of Jadotville</span><span class="kw">Irish UN soldiers</span><span class="kw">Congo crisis</span><span class="kw">greatest last stands</span><span class="kw">military history</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> 150 vs 3,000 — and not one Irishman died (30s)</div><div class="si"><b>S2:</b> Ran out of ammo after 5 days — still held the line (40s)</div><div class="si"><b>S3:</b> 55 years for Ireland to honor them (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 0.9h &middot; Script: 0.9h &middot; Voiceover: 0.4h &middot; Edit: 1.0h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Underdog narratives are YouTube gold.</div>
+</div></div><div class="vid" id="v12">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">12</div>
+<div class="vid-info">
+<div class="vid-title">The Forgotten Female Spies of WW2 — SOE's Secret Army</div>
+<div class="vid-sub">Nancy Wake, Virginia Hall, Violette Szabo, and the women who broke Nazi occupation</div>
+<div class="vm-row">
+<span class="vm vm-sp">ESPIONAGE</span>
+<span class="vm vm-hr">4.5h production</span>
+<span class="vm vm-date">Week 7, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">They were housewives, journalists, and socialites. Then Churchill recruited them into the most dangerous secret service in history. They parachuted into occupied Europe and killed Nazis — and the world has never heard their names.</div>
+<div class="fl">Why This Topic</div><div class="fv">Expands from V5 (Noor). Multiple compelling characters. SOE consistently performs well. Broadens demographics.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: SOE formation, recruiting women. Act 2: Four stories — Nancy Wake (White Mouse), Virginia Hall (one-legged spy), Violette Szabo (executed at 23), Odette Sansom (survived Ravensbruck). Act 3: Post-war forgotten, honored decades later.</div>
+<div class="fl">Key Facts</div><div class="fv">39 women deployed to France, 13 killed, Nancy Wake killed SS sentry bare hands, Virginia Hall had wooden leg Cuthbert.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Montage female spy portraits. Text: THE SECRET ARMY. Red badge: CLASSIFIED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Female spies WW2</span><span class="kw">SOE women</span><span class="kw">Nancy Wake</span><span class="kw">Virginia Hall</span><span class="kw">women in espionage</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Nancy Wake killed an SS sentry with her bare hands (30s)</div><div class="si"><b>S2:</b> Virginia Hall was most wanted in France — with one leg (40s)</div><div class="si"><b>S3:</b> 13 of 39 women never came home (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.1h &middot; Script: 1.1h &middot; Voiceover: 0.5h &middot; Edit: 1.3h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">Multi-character format. Each woman = future standalone video.</div>
+</div></div><div class="vid" id="v13">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">13</div>
+<div class="vid-info">
+<div class="vid-title">The Man Who Saved the World Twice — Vasili Arkhipov</div>
+<div class="vid-sub">How one Soviet submarine officer prevented nuclear war during the Cuban Missile Crisis</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span><span class="vm vm-sp">ESPIONAGE</span>
+<span class="vm vm-hr">3.5h production</span>
+<span class="vm vm-date">Week 8, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">On October 27, 1962, three Soviet officers had to unanimously agree to launch a nuclear torpedo. Two said yes. One said no. That one man may have saved every person alive today.</div>
+<div class="fl">Why This Topic</div><div class="fv">Cuban Missile Crisis = massive search. Single decision = fate of world. Perfect for Shorts.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Cuban Missile Crisis, submarine B-59, depth charged by US Navy. Act 2: Captain orders launch, political officer agrees, Arkhipov says no. Act 3: Surfacing, Cold War aftermath, died 1998 unrecognized.</div>
+<div class="fl">Key Facts</div><div class="fv">Submarine B-59, October 27 1962, nuclear torpedo T-5 (15 kiloton), required 3 unanimous votes, Arkhipov's single NO prevented launch.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Submarine silhouette. Text: THE MAN WHO SAVED THE WORLD. Red badge: 1962.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Vasili Arkhipov</span><span class="kw">Cuban Missile Crisis</span><span class="kw">nuclear war prevented</span><span class="kw">Cold War submarine</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Two voted yes to launch nuclear torpedo. One voted no. (30s)</div><div class="si"><b>S2:</b> If Arkhipov said yes — you probably wouldn't exist (30s)</div><div class="si"><b>S3:</b> He died in 1998 without recognition (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 0.9h &middot; Script: 0.9h &middot; Voiceover: 0.4h &middot; Edit: 1.0h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Most dramatic single-moment story in history.</div>
+</div></div><div class="vid" id="v14">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">14</div>
+<div class="vid-info">
+<div class="vid-title">The First South Asian Victoria Cross — Khudadad Khan at Ypres 1914</div>
+<div class="vid-sub">A wounded machine gunner, alone, every comrade dead — the 26-year-old who fired until there was no one left</div>
+<div class="vm-row">
+<span class="vm vm-sa">SOUTH ASIAN</span>
+<span class="vm vm-hr">4.5h production</span>
+<span class="vm vm-date">Week 8, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">On October 31, 1914, at Hollebeke, Belgium, Sepoy Khudadad Khan's entire machine gun team was dead. Every man killed by German bullets or bayonets. Khan himself was wounded. But he kept firing — alone — holding off the German advance long enough for reinforcements to arrive. He was left for dead. He crawled back to his regiment in the darkness. He was 26 years old. And he became the first South Asian in history to earn the Victoria Cross.</div>
+<div class="fl">Why This Topic</div><div class="fv">The first South Asian VC winner is a story almost nobody knows — even in South Asia. Connects powerfully to V1 (Indian Army WW2), V2 (Imphal), and V9 (Gurkhas). The fact that Indian soldiers weren't even ELIGIBLE for the VC until 1911 — just 3 years before Khudadad Khan earned one — adds a powerful colonial injustice angle that resonates with your channel thesis. Khan was from what is now Pakistan, adding cross-border appeal. The story spans WW1 (not WW2), diversifying your timeline. King George V personally visited his hospital bed to award it — incredible visual moment.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: The injustice — Indian soldiers fought for Britain for decades but were DENIED the VC until 1911. The Indian Order of Merit was considered "good enough for natives." The campaign to change this. Why it matters. Act 2: Khudadad Khan's story — born in Punjab (now Pakistan), 129th Baluchis, sent to Western Front October 1914, First Battle of Ypres. The German assault at Hollebeke. His entire team killed. Wounded, alone, firing until the last possible moment. Left for dead, crawling back through no-man's land. Act 3: The wider story — 11 VCs to Indian soldiers in WW1, 28 in WW2. Darwan Singh Negi (second Indian VC, same month). The 153 total VCs to Indian Army. Khan's later life — retired as Subedar, met Queen Elizabeth II in 1956, died 1971 in Pakistan. His statue stands at Pakistan Army Museum. The medal made from captured Russian cannons. Legacy: Abdul Hafiz VC at Imphal (connects V2), Lachhiman Gurung VC (connects V9).</div>
+<div class="fl">Key Facts</div><div class="fv">Sepoy Khudadad Khan, 129th Duke of Connaught's Own Baluchis, October 31 1914, Hollebeke Belgium. First Battle of Ypres. All 5 comrades killed. Khan wounded but kept firing alone. Crawled back in darkness. Awarded VC by King George V in person at Indian Hospital, Brighton Pavilion, January 26 1915. Indian soldiers only eligible for VC from 1911. Total 153 VCs to Indian Army. 11 in WW1, 28 in WW2. Khan retired as Subedar, died 1971 Pakistan.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Dramatic archival photo of Indian soldier with turban and machine gun on Western Front. Text: THE FIRST SOUTH ASIAN VICTORIA CROSS. Red badge: 1914. Dark overlay with amber accent bar. The turban on the Western Front is an inherently striking and unusual image.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Khudadad Khan</span><span class="kw">first Indian Victoria Cross</span><span class="kw">South Asian VC winner</span><span class="kw">Indian soldiers WW1</span><span class="kw">Victoria Cross history</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4>
+<div class="si"><b>S1:</b> Every man in his team was dead. He was wounded. He kept firing alone. (30s)</div>
+<div class="si"><b>S2:</b> Indian soldiers weren't even allowed to receive the Victoria Cross until 1911 — 3 years before Khudadad Khan earned one (30s)</div>
+<div class="si"><b>S3:</b> The King of England visited his hospital bed to personally give him the medal (30s)</div>
+</div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.1h &middot; Script: 1.1h &middot; Voiceover: 0.5h &middot; Edit: 1.3h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">Connects retroactively to V1, V2, V9. The colonial injustice angle (denied the VC until 1911) reinforces your channel thesis about forgotten soldiers. WW1 setting diversifies your timeline beyond WW2. Khan being from modern-day Pakistan adds cross-border South Asian appeal. The turban-on-the-Western-Front imagery is visually distinctive and shareable.</div>
+</div></div>
+<div class="vid" id="v15">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">15</div>
+<div class="vid-info">
+<div class="vid-title">Dunkirk From the Other Side — The Germans Who Let Them Escape</div>
+<div class="vid-sub">Why Hitler halted the Panzers and allowed 338,000 Allied soldiers to escape</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 9, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">You know the Dunkirk miracle — 338,000 soldiers rescued from the beaches. But here's what they never told you: the Germans could have destroyed them all. And nobody agrees on why they didn't.</div>
+<div class="fl">Why This Topic</div><div class="fv">Dunkirk = massive search. YOUR angle: German perspective and Halt Order mystery. Contrarian take drives curiosity clicks.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Panzers closing in, Allied forces trapped. Act 2: Hitler's Halt Order — theories: Goring's Luftwaffe promise, negotiation hopes, operational caution, terrain. Act 3: 338K saved, consequences.</div>
+<div class="fl">Key Facts</div><div class="fv">Halt Order May 24 1940, Panzers 10 miles from Dunkirk, Guderian furious, 338K evacuated May 26-June 4.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Panzers stopped, Dunkirk smoke in background. Text: WHY THEY LET THEM ESCAPE. Red badge: THE HALT ORDER.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Dunkirk halt order</span><span class="kw">why Germans stopped</span><span class="kw">Hitler Dunkirk</span><span class="kw">WW2 mysteries</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> German tanks were 10 miles away — then Hitler ordered them to stop (30s)</div><div class="si"><b>S2:</b> 338,000 escaped because of a decision nobody can explain (30s)</div><div class="si"><b>S3:</b> Did the Halt Order lose Germany the war? (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Mystery/debate format drives comments.</div>
+</div></div><div class="phase p-au">VIDEOS 16-20 &mdash; AUTHORITY (Deep Cuts &amp; Controversy)</div><div class="vid" id="v16">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">16</div>
+<div class="vid-info">
+<div class="vid-title">The Forgotten Army — Subhas Chandra Bose and the Indian National Army</div>
+<div class="vid-sub">The most controversial military force in Indian history — heroes or traitors?</div>
+<div class="vm-row">
+<span class="vm vm-sa">SOUTH ASIAN</span>
+<span class="vm vm-hr">5h production</span>
+<span class="vm vm-date">Week 9, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">He raised an army of 40,000 Indian soldiers to fight AGAINST Britain — alongside Japan. In India today, he is a hero. In Britain, he was a traitor. The truth is far more complicated.</div>
+<div class="fl">Why This Topic</div><div class="fv">Bose referenced in V1, V2, V4 — this pays off the thread. Hugely controversial = engagement gold. Balanced scholarly approach differentiates.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Bose's background, escape from house arrest, journey to Germany then Japan. Act 2: INA from POWs at Singapore, Azad Hind government, march toward India, Imphal defeat. Act 3: Mysterious death, Red Fort Trials, role in catalyzing independence.</div>
+<div class="fl">Key Facts</div><div class="fv">40K INA soldiers, Azad Hind government, fought at Imphal/Kohima, Bose died August 1945 (disputed), Red Fort Trials sparked mass protests.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Bose in military uniform. Text: HERO OR TRAITOR? Red badge: CLASSIFIED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Subhas Chandra Bose</span><span class="kw">Indian National Army</span><span class="kw">INA WW2</span><span class="kw">Azad Hind</span><span class="kw">Indian independence</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Escaped house arrest and raised an army against Britain (30s)</div><div class="si"><b>S2:</b> 40,000 Indian soldiers fighting AGAINST their colonial rulers (30s)</div><div class="si"><b>S3:</b> Hero in India. Traitor in Britain. The truth is complicated. (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.2h &middot; Script: 1.2h &middot; Voiceover: 0.6h &middot; Edit: 1.4h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">HANDLE WITH SCHOLARLY NEUTRALITY. Will generate strong emotions.</div>
+</div></div><div class="vid" id="v17">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">17</div>
+<div class="vid-info">
+<div class="vid-title">The Tunnel Kings — The True Story of The Great Escape</div>
+<div class="vid-sub">The real escape was far more ingenious and far more tragic than the movie</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 10, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">The movie showed Steve McQueen on a motorcycle jumping a fence. That never happened. The real Great Escape was a feat of engineering genius and devastating tragedy.</div>
+<div class="fl">Why This Topic</div><div class="fv">Enormous brand recognition. Real vs movie angle (proven formula from V7). Engineering details fascinate. 50 executed = emotional weight.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Stalag Luft III, Bushell organizes, 3 tunnels (Tom, Dick, Harry), engineering (electric lights, rail carts). Act 2: Escape night March 1944, 76 escape, 73 recaptured. Act 3: Hitler orders 50 executed (war crime), only 3 made it home.</div>
+<div class="fl">Key Facts</div><div class="fv">Tunnel Harry 336 feet long, 200+ involved, 76 escaped, 50 executed on Hitler's order, 3 reached safety.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Dark tunnel with light. Text: THE REAL GREAT ESCAPE. Red badge: 50 EXECUTED.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Great Escape true story</span><span class="kw">Stalag Luft III</span><span class="kw">WW2 POW escape</span><span class="kw">tunnel escape</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> 336-foot tunnel with electric lights and a railway — underground (30s)</div><div class="si"><b>S2:</b> 76 escaped. Hitler ordered 50 executed. (30s)</div><div class="si"><b>S3:</b> The motorcycle jump never happened. (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Movie comparison format proven (V7).</div>
+</div></div><div class="vid" id="v18">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">18</div>
+<div class="vid-info">
+<div class="vid-title">The Double Agent Who Won D-Day — Juan Pujol Garcia (Agent Garbo)</div>
+<div class="vid-sub">The Spanish chicken farmer who became the greatest double agent in history</div>
+<div class="vm-row">
+<span class="vm vm-sp">ESPIONAGE</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 10, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">He was a Spanish chicken farmer with no training. Britain rejected him. So he created an entire fake spy network, fooled the Nazis into hiring him, then offered his intel to Britain again. This time, they said yes.</div>
+<div class="fl">Why This Topic</div><div class="fv">Ultimate espionage story. Directly contributed to D-Day (Operation Fortitude). Absurd origin. Both Germany AND Britain gave him medals.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Chicken farmer, hated fascism + communism, rejected by MI5, creates fake network. Act 2: MI5 recruits him, 27 fictional agents, Fortitude — convincing Hitler D-Day at Calais. Act 3: Iron Cross + MBE, faked death, lived in Venezuela.</div>
+<div class="fl">Key Facts</div><div class="fv">Codename Garbo/Arabel, 27 fictional sub-agents, key to Fortitude, held Panzers from Normandy for 48 hours.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Man in trench coat with two flag badges. Text: THE GREATEST DOUBLE AGENT. Red badge: D-DAY.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Agent Garbo</span><span class="kw">Juan Pujol Garcia</span><span class="kw">D-Day deception</span><span class="kw">double agent</span><span class="kw">Operation Fortitude</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Chicken farmer created 27 fake spies — fooled Nazi intelligence (30s)</div><div class="si"><b>S2:</b> His fake intel held Panzers from Normandy for 48 hours (40s)</div><div class="si"><b>S3:</b> Both Germany AND Britain gave him medals (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Absurd origin + world-historical consequences = perfect YouTube formula.</div>
+</div></div><div class="vid" id="v19">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">19</div>
+<div class="vid-info">
+<div class="vid-title">The Greatest Raid of All — How 611 Commandos Destroyed Hitler's Fortress</div>
+<div class="vid-sub">Operation Chariot: ramming a destroyer packed with explosives into the most heavily defended dock in Europe</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4.5h production</span>
+<span class="vm vm-date">Week 11, Tuesday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">In March 1942, 611 British commandos sailed an obsolete destroyer packed with 4.5 tons of hidden explosives directly into the most heavily defended port in Nazi-occupied France. The plan was insane. It worked.</div>
+<div class="fl">Why This Topic</div><div class="fv">Called 'The Greatest Raid of All' — the title alone is clickbait-proof. Combines naval + commando action. The delayed explosion twist is one of the most dramatic reveals in military history. Proven search demand. Connects to D-Day narrative (removing Tirpitz threat).</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Why Saint-Nazaire? The Normandie dry dock was the only Atlantic port that could repair the German battleship Tirpitz. If Tirpitz entered the Atlantic, it could destroy Allied convoys. The plan: ram HMS Campbeltown (disguised as a German ship) into the dock gates with hidden time-delayed explosives. Act 2: The raid — 611 men in 1 destroyer + 18 small boats, running a gauntlet of 80+ German guns, Campbeltown rams the dock gates at 20 knots. Fierce commando fighting in the port. Withdrawal under fire — most boats destroyed. Act 3: The morning after — Germans inspect Campbeltown, declare raid a failure. Then at 10:30 AM, 4.5 tons of explosives detonate. 360 Germans killed instantly. Dock destroyed and not repaired until 1947. 169 commandos killed, 215 captured. 5 Victoria Crosses awarded (connects to V14). Churchill called it the greatest raid.</div>
+<div class="fl">Key Facts</div><div class="fv">Operation Chariot, March 28 1942, 611 men, HMS Campbeltown (ex-USS Buchanan), 4.5 tons of delayed explosives, Normandie dry dock, 80+ German guns, 169 killed, 215 POW, 5 VCs awarded, dock not repaired until 1947, removed Tirpitz Atlantic threat.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Destroyer ramming dock gates, explosions in background. Text: THE GREATEST RAID OF ALL. Red badge: 611 MEN.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Operation Chariot</span><span class="kw">Saint-Nazaire raid</span><span class="kw">greatest commando raid</span><span class="kw">HMS Campbeltown</span><span class="kw">WW2 commandos</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> They sailed a ship packed with hidden explosives into the most defended port in Europe (30s)</div><div class="si"><b>S2:</b> The Germans inspected the ship and declared it safe. 8 hours later, 4.5 tons detonated. (40s)</div><div class="si"><b>S3:</b> 611 men went in. 169 never came back. 5 earned the Victoria Cross. (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.1h &middot; Script: 1.1h &middot; Voiceover: 0.5h &middot; Edit: 1.3h &middot; Thumb + Shorts + Upload: 0.5h</div>
+<div class="rat">The delayed explosion reveal is one of the greatest narrative twists in military history — save it for Act 3. The 5 VCs connect to V14. The Tirpitz strategic context adds depth.</div>
+</div></div><div class="vid" id="v20">
+<div class="vid-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="vid-num">20</div>
+<div class="vid-info">
+<div class="vid-title">The Most Decorated Soldier You've Never Heard Of — Audie Murphy</div>
+<div class="vid-sub">The most decorated American combat soldier of WW2 was a baby-faced teenager from Texas</div>
+<div class="vm-row">
+<span class="vm vm-gl">GLOBAL</span>
+<span class="vm vm-hr">4h production</span>
+<span class="vm vm-date">Week 11, Thursday</span>
+<span class="vm vm-t">3 Shorts</span>
+</div></div>
+<span class="chevron">&#9654;</span>
+</div>
+<div class="vid-body">
+<div class="hook">He was 5 foot 5, weighed 110 pounds, and was rejected by every branch for being too small. He became the most decorated American combat soldier of World War 2 — all before his 21st birthday.</div>
+<div class="fl">Why This Topic</div><div class="fv">Ends on iconic individual story. Audie Murphy has name recognition but unknown details. Underdog narrative. Hollywood twist. Full circle.</div>
+<div class="fl">Script Structure</div><div class="fv">Act 1: Orphaned Texas farm boy, rejected by Marines/Navy for size, Army takes him at 17. Act 2: Held off entire German company alone on burning tank destroyer, Medal of Honor at Holtzwihr. Act 3: PTSD (early advocate), Hollywood playing himself, died in plane crash age 45.</div>
+<div class="fl">Key Facts</div><div class="fv">Most decorated US combat soldier WW2, 33 awards including Medal of Honor, joined at 17, killed 240+ enemy, became Hollywood actor, PTSD advocate, died age 45.</div>
+<div class="fl">Thumbnail Concept</div><div class="fv">Young Audie Murphy portrait. Text: THE MOST DECORATED SOLDIER. Red badge: AGE 19.</div>
+<div class="fl">SEO Tags</div><div class="fv"><span class="kw">Audie Murphy</span><span class="kw">most decorated soldier</span><span class="kw">Medal of Honor WW2</span><span class="kw">American war heroes</span></div>
+<div class="shorts-box"><h4>3 Shorts to Extract</h4><div class="si"><b>S1:</b> Rejected by every branch for being too small — became most decorated (30s)</div><div class="si"><b>S2:</b> Stood on a BURNING tank destroyer firing at an entire German company (40s)</div><div class="si"><b>S3:</b> Hollywood asked him to play himself — and he said yes (30s)</div></div>
+<div class="fl">Production Time Breakdown</div><div class="fv">Research: 1.0h &middot; Script: 1.0h &middot; Voiceover: 0.5h &middot; Edit: 1.1h &middot; Thumb + Shorts + Upload: 0.4h</div>
+<div class="rat">Strong ending. Individual heroism + underdog + Hollywood = perfect YouTube.</div>
+</div></div>
+<div class="mix"><h2>Content Mix Across 20 Videos</h2>
+<p><strong style="color:#F59E0B">South Asian (4 videos, 20%):</strong> V1 Indian Army WW2, V2 Imphal, V9 Gurkhas, V16 Bose/INA &mdash; plus SA angles in V4, V7, V14</p>
+<p><strong style="color:#4DA6FF">Global (11 videos, 55%):</strong> V4 Singapore, V6 Night Witches, V7 Burma Railway, V10 Dambusters, V11 Jadotville, V13 Arkhipov, V14 Khudadad Khan VC, V15 Dunkirk, V17 Great Escape, V19 Saint-Nazaire, V20 Audie Murphy</p>
+<p><strong style="color:#A78BFA">Espionage (5 videos, 25%):</strong> V3 Ghost Army, V5 Noor Inayat Khan, V8 Mincemeat, V12 Female SOE Spies, V18 Agent Garbo</p>
+<p style="color:#6EE7B7;margin-top:10px;font-size:0.78rem">2 videos/week across 11 weeks. Total: <strong>83.5 hours</strong> (~7.6h/week). After 20 videos the algorithm has enough data to actively recommend your channel.</p>
+</div>
+<a class="back" href="index.html">&larr; Back to Master Portal</a>
+</div></body></html>

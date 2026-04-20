@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Video-to-Book Feasibility — 20 Topics Evaluated for KDP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#0A0A0A;color:#E6EDF3;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding:20px}
+.hero{text-align:center;padding:40px 20px 30px;border-bottom:2px solid #78350F;margin-bottom:20px}
+.hero h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#F59E0B;letter-spacing:1px}
+.hero p{color:#8B949E;margin-top:6px;font-size:0.85rem}
+.verdict{background:#161B22;border:1px solid #21262D;border-radius:10px;padding:20px;margin:20px 0}
+.verdict h2{font-size:1.1rem;color:#F59E0B;margin-bottom:10px}
+.verdict-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.vg{text-align:center;padding:12px;border-radius:8px}
+.vg b{display:block;font-size:1.6rem}.vg span{font-size:0.65rem;text-transform:uppercase;letter-spacing:1px}
+.vg-yes{background:#10B98115;border:1px solid #064E3B}.vg-yes b{color:#10B981}.vg-yes span{color:#A7F3D0}
+.vg-maybe{background:#F59E0B15;border:1px solid #78350F}.vg-maybe b{color:#F59E0B}.vg-maybe span{color:#FCD34D}
+.vg-no{background:#DC262615;border:1px solid #DC262640}.vg-no b{color:#F87171}.vg-no span{color:#FCA5A5}
+
+.eval{background:#111318;border:1px solid #21262D;border-radius:12px;margin:12px 0;overflow:hidden;transition:border-color 0.2s}
+.eval:hover{border-color:#F59E0B}
+.eval-head{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.eval-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:800;flex-shrink:0}
+.en-yes{background:#10B98120;color:#10B981;border:1px solid #064E3B}
+.en-maybe{background:#F59E0B20;color:#F59E0B;border:1px solid #78350F}
+.en-no{background:#DC262620;color:#F87171;border:1px solid #DC2626}
+.eval-info{flex:1;min-width:0}
+.eval-title{font-size:0.9rem;font-weight:700;color:#E6EDF3}
+.eval-sub{font-size:0.7rem;color:#8B949E;margin-top:2px}
+.eval-badges{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap}
+.eb{font-size:0.58rem;padding:2px 7px;border-radius:4px;font-weight:700;letter-spacing:0.3px}
+.eb-yes{background:#10B98120;color:#10B981;border:1px solid #064E3B}
+.eb-maybe{background:#F59E0B20;color:#F59E0B;border:1px solid #78350F}
+.eb-no{background:#DC262620;color:#F87171;border:1px solid #DC2626}
+.eb-format{background:#161B22;color:#8B949E;border:1px solid #21262D}
+.chevron{color:#484F58;transition:transform 0.2s;font-size:0.8rem}
+.eval.open .chevron{transform:rotate(90deg)}.eval.open .eval-body{display:block}
+.eval-body{padding:0 18px 18px;display:none}
+.fl{font-size:0.65rem;color:#F59E0B;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin:8px 0 3px}
+.fv{font-size:0.8rem;color:#C9D1D9;margin-bottom:6px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px;margin:8px 0}
+.score{background:#161B22;border:1px solid #21262D;border-radius:6px;padding:8px 10px;text-align:center}
+.score-val{font-size:1.2rem;font-weight:800}.score-label{font-size:0.6rem;color:#8B949E;text-transform:uppercase;letter-spacing:0.5px}
+.sv-high{color:#10B981}.sv-med{color:#F59E0B}.sv-low{color:#F87171}
+.book-idea{background:#0D2818;border:1px solid #064E3B;border-radius:8px;padding:12px 14px;margin:8px 0}
+.book-idea h4{font-size:0.78rem;color:#10B981;margin-bottom:4px}
+.book-idea p{font-size:0.78rem;color:#A7F3D0}
+.warning{background:#DC262610;border:1px solid #DC262630;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:0.78rem;color:#FCA5A5}
+.rec{background:#161B22;border:1px solid #21262D;border-radius:10px;padding:16px 20px;margin:24px 0}
+.rec h2{font-size:1rem;font-weight:700;color:#10B981;margin-bottom:10px}
+.rec p{font-size:0.82rem;color:#8B949E;margin:6px 0}
+.rec-book{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #21262D}
+.rec-book:last-child{border:none}
+.rb-num{color:#10B981;font-weight:800;font-size:0.85rem;min-width:24px}
+.rb-title{font-size:0.82rem;color:#E6EDF3;font-weight:600}
+.rb-desc{font-size:0.72rem;color:#8B949E}
+.rb-price{font-size:0.65rem;color:#F59E0B;font-weight:600}
+.back{text-align:center;padding:30px;color:#F59E0B;text-decoration:none;font-size:0.85rem;display:block}
+</style></head><body><div id="tff-nav" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0D1117;border-bottom:2px solid #D97706;padding:6px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:'Segoe UI',sans-serif;font-size:12px">
+<a href="index.html" style="color:#F59E0B;text-decoration:none;font-weight:700">☰ Portal</a>
+<span style="color:#21262D">|</span>
+<a href="Founders_Task_Tracker.html" style="color:#10B981;text-decoration:none">✅ Tasks</a>
+<a href="First_20_YouTube_Videos.html" style="color:#F59E0B;text-decoration:none">🎬 Videos</a>
+<a href="First_20_KDP_Books.html" style="color:#10B981;text-decoration:none">📚 Books</a>
+<a href="Video_to_Book_Feasibility.html" style="color:#A78BFA;text-decoration:none">📊 Feasibility</a>
+<a href="Founders_Execution_Plan.html" style="color:#4DA6FF;text-decoration:none">⚡ Plan</a>
+</div><div style="height:38px"></div>
+<div class="wrap">
+<div class="hero"><h1>Video-to-Book Feasibility Evaluation</h1>
+<p>Can your 20 YouTube video topics become KDP books? Scored on demand, competition, format fit, synergy, and production effort.</p></div>
+
+<div class="verdict">
+<h2>Summary Verdict</h2>
+<p style="font-size:0.82rem;color:#8B949E;margin-bottom:10px">Of your 20 video topics, here's how they break down for KDP book potential:</p>
+<div class="verdict-grid">
+<div class="vg vg-yes"><b>8</b><span>Strong book potential</span></div>
+<div class="vg vg-maybe"><b>7</b><span>Possible with right format</span></div>
+<div class="vg vg-no"><b>5</b><span>Skip — too narrow for books</span></div>
+</div>
+</div>
+
+<!-- V1 -->
+<div class="eval" id="v1"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V1</div><div class="eval-info"><div class="eval-title">The 2.5 Million Soldiers History Forgot — Indian Army in WW2</div><div class="eval-sub">Book potential: Indian Army WW2 comprehensive guide</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Medium-content book</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Channel Synergy</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Ease to Produce</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">Massive underserved market — the South Asian diaspora (1.8B people) plus military history enthusiasts. Very few quality English-language books cover the Indian Army in WW2 comprehensively in an accessible, non-academic format. Your video drives direct traffic to the listing.</div>
+<div class="fl">Why it might not</div><div class="fv">Requires genuine research depth — a thin "fact book" would disappoint this audience. Needs 30,000-50,000 words to do justice. Production time significantly higher than low-content books.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>"The Forgotten Army: The Untold Story of 2.5 Million Indian Soldiers in World War 2" — 200-page medium-content narrative. Chapters by theater (Burma, North Africa, Italy, Middle East). Stats, personal stories, maps described. $14.99. Mention in every V1/V2/V9/V14/V16 video description.</p></div>
+</div></div>
+
+<!-- V2 -->
+<div class="eval" id="v2"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V2</div><div class="eval-info"><div class="eval-title">The Battle That Saved India — Imphal 1944</div><div class="eval-sub">Book potential: Possible as chapter, not standalone</div><div class="eval-badges"><span class="eb eb-maybe">CHAPTER, NOT BOOK</span><span class="eb eb-format">Too narrow alone</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">7</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">A single battle rarely sustains an entire book for a general audience. Imphal works brilliantly as a 15-minute video but as a standalone book, the market is too narrow. However, it's a PERFECT chapter in the V1 book ("The Forgotten Army") — likely the most dramatic chapter. Don't waste this topic on a standalone; fold it into the larger Indian Army WW2 narrative.</div>
+<div class="warning">Skip as standalone book. Include as flagship chapter in V1 book instead.</div>
+</div></div>
+
+<!-- V3 -->
+<div class="eval" id="v3"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V3</div><div class="eval-info"><div class="eval-title">The Ghost Army — How Fake Tanks Fooled Hitler</div><div class="eval-sub">Book potential: Strong — fascinating narrative with visual descriptions</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Narrative non-fiction</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">Ghost Army is inherently book-worthy — Rick Beyer already proved this with his bestselling book. YOUR angle: a shorter, more accessible version (100-150 pages vs academic books). The topic is evergreen. Your video drives discovery.</div>
+<div class="fl">Competition concern</div><div class="fv">"The Ghost Army of World War II" by Rick Beyer exists and sells well. BUT: it's a hardcover photo book ($25+). You can undercut with a compact, narrative-driven $12.99 paperback targeting a different buyer (casual readers vs collectors). Think of it as the "documentary companion" version.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>"The Ghost Army: How 1,100 Artists Fooled Hitler with Inflatable Tanks and Sound Effects" — 120-page compact narrative. Chronological operations + character profiles of the artists. $12.99.</p></div>
+</div></div>
+
+<!-- V4 -->
+<div class="eval" id="v4"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V4</div><div class="eval-info"><div class="eval-title">The Fall of Singapore 1942</div><div class="eval-sub">Book potential: Possible but competitive</div><div class="eval-badges"><span class="eb eb-maybe">MODERATE FIT</span><span class="eb eb-format">Better in compilation</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-low">3</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">Several strong Singapore 1942 books exist (Peter Thompson's "The Battle for Singapore" is definitive). Hard to differentiate as standalone. BUT: the Indian POW angle (40K Indians captured) is underserved and connects to V1 book. Best used as a chapter in a broader "Forgotten Fronts" compilation or the V1 Indian Army book.</div>
+<div class="warning">High competition for standalone. Fold into V1 book as the "Before Imphal" chapter, or into a "Greatest Surrenders" compilation.</div>
+</div></div>
+
+<!-- V5 -->
+<div class="eval" id="v5"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V5</div><div class="eval-info"><div class="eval-title">The Spy Princess — Noor Inayat Khan</div><div class="eval-sub">Book potential: Strong biographical narrative</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Biography / narrative</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">Noor's story is deeply personal, emotionally devastating, and has a clear narrative arc — perfect for a book. Her South Asian heritage creates a unique angle. "Female spy" books are consistently popular on Amazon. The story naturally spans 150+ pages of compelling content.</div>
+<div class="fl">Best format</div><div class="fv">Could be standalone biography OR folded into a broader "Women Who Fought" collection alongside Night Witches (V6) and SOE female spies (V12). A standalone Noor biography might be the higher-impact choice given her unique cross-cultural appeal.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>"The Spy Princess: The Extraordinary True Story of Noor Inayat Khan" — 150-page narrative biography. Or combine with V6+V12: "The Secret Heroines: Noor, the Night Witches, and SOE's Forgotten Women" — 200 pages, $14.99.</p></div>
+</div></div>
+
+<!-- V6 -->
+<div class="eval" id="v6"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V6</div><div class="eval-info"><div class="eval-title">The Night Witches</div><div class="eval-sub">Book potential: Strong but better in compilation</div><div class="eval-badges"><span class="eb eb-maybe">BEST IN COMPILATION</span><span class="eb eb-format">Combine with V5+V12</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-low">4</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">7</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">Several Night Witches books already exist and sell well. Hard to differentiate as standalone KDP. BUT: combined with Noor (V5) and SOE women (V12) into "The Secret Heroines" — that's a UNIQUE product nobody else offers. The compilation is stronger than the sum of its parts.</div>
+</div></div>
+
+<!-- V7 -->
+<div class="eval" id="v7"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V7</div><div class="eval-info"><div class="eval-title">The Bridge on the River Kwai — The Real Story</div><div class="eval-sub">Book potential: "Movie vs Reality" format could work</div><div class="eval-badges"><span class="eb eb-maybe">NICHE FORMAT</span><span class="eb eb-format">Movie companion</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-low">3</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">Standalone: too competitive. BUT the "what the movie got wrong" angle could work as part of a COMPILATION: "10 War Movies vs Reality" covering Bridge/Kwai, Dunkirk, Great Escape, Saving Private Ryan etc. That's a unique product with broad appeal to both movie fans and history buffs. Synergizes with V7 + V17 (Great Escape) content.</div>
+</div></div>
+
+<!-- V8 -->
+<div class="eval" id="v8"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V8</div><div class="eval-info"><div class="eval-title">Operation Mincemeat</div><div class="eval-sub">Book potential: Strong — fold into espionage compilation</div><div class="eval-badges"><span class="eb eb-yes">STRONG IN COMPILATION</span><span class="eb eb-format">Espionage collection</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-low">3</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">Ben Macintyre's "Operation Mincemeat" is a classic — can't compete standalone. But combined with Ghost Army (V3), Agent Garbo (V18), and Noor (V5), this becomes your "Spies, Codes & Secret Operations" book (already in your 20-book KDP plan as Book 15). These 4 videos provide the research backbone for that book. Minimal extra effort.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>Already planned: "Spies, Codes & Secret Operations: 52 Espionage Stories" (KDP Book 15) — V3, V5, V8, V12, V18 content feeds directly into this book. Cross-promote in all espionage video descriptions.</p></div>
+</div></div>
+
+<!-- V9 -->
+<div class="eval" id="v9"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V9</div><div class="eval-info"><div class="eval-title">The Gurkhas — Most Feared Soldiers in History</div><div class="eval-sub">Book potential: Very strong — 200 years of stories</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Narrative collection</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">"Gurkha" books consistently sell well on Amazon. 200 years of bravery stories = easily 200+ pages of content. South Asian + UK + global military audience. Individual heroism stories (Lachhiman Gurung, Dipprasad Pun, Bishnu Shrestha) are inherently page-turning. Your 15-minute video can only cover highlights — the book goes deep.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>"The Gurkhas: 200 Years of the World's Most Feared Soldiers" — 200-page narrative history with 50 bravery stories. Chapters by era: Anglo-Nepalese War, WW1, WW2, Falklands, Afghanistan. $14.99. Massive cross-promotion via V9.</p></div>
+</div></div>
+
+<!-- V10 -->
+<div class="eval" id="v10"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-no">V10</div><div class="eval-info"><div class="eval-title">The Dambusters Raid</div><div class="eval-sub">Book potential: Too competitive — skip</div><div class="eval-badges"><span class="eb eb-no">SKIP</span><span class="eb eb-format">Saturated market</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-low">1</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-low">3</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">The Dambusters has dozens of excellent books already. Paul Brickhill's classic has been in print since 1951. You cannot compete here. Great as a video topic (search volume), terrible as a standalone book (saturated). Use Dambusters content inside your "Forgotten Battles: 52 Stories" compilation instead.</div>
+</div></div>
+
+<!-- V11 -->
+<div class="eval" id="v11"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V11</div><div class="eval-info"><div class="eval-title">The Siege of Jadotville</div><div class="eval-sub">Book potential: Niche — better in "Greatest Last Stands" compilation</div><div class="eval-badges"><span class="eb eb-maybe">COMPILATION ONLY</span><span class="eb eb-format">Too narrow alone</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-low">4</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-low">4</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">Too narrow for standalone — the Irish audience is passionate but small. However, it's a PERFECT entry in a "20 Greatest Last Stands" compilation book. Pair with Thermopylae, Rorke's Drift, the Alamo, Camerone, etc. That compilation has broad appeal and no quality version exists on Amazon in compact format.</div>
+</div></div>
+
+<!-- V12 -->
+<div class="eval" id="v12"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V12</div><div class="eval-info"><div class="eval-title">The Forgotten Female Spies of WW2</div><div class="eval-sub">Book potential: Very strong — combine with V5 + V6</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Narrative collection</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">6</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">"Women in WW2" is a growing search category on Amazon. Nancy Wake, Virginia Hall, Violette Szabo, Noor Inayat Khan, Night Witches — combined, these create a 200-page page-turner. You already have the research from V5, V6, and V12. Minimal extra work for a premium book.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>"The Secret Heroines: The Untold Stories of Women Who Fought the Nazis" — 200 pages, Noor + Nancy Wake + Virginia Hall + Violette Szabo + Night Witches + more. $14.99. Cross-promote in V5, V6, and V12 descriptions. Targets a growing "women in history" buyer segment.</p></div>
+</div></div>
+
+<!-- V13 -->
+<div class="eval" id="v13"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-no">V13</div><div class="eval-info"><div class="eval-title">Vasili Arkhipov — Saved the World</div><div class="eval-sub">Book potential: Too narrow — one incident can't fill a book</div><div class="eval-badges"><span class="eb eb-no">SKIP</span><span class="eb eb-format">Single event</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="fl">Verdict</div><div class="fv">Perfect as a 12-minute video. Impossible as a standalone book — it's one moment on one submarine. Include as a chapter in a "Moments That Almost Ended the World" or "Cold War" compilation.</div>
+</div></div>
+
+<!-- V14 -->
+<div class="eval" id="v14"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V14</div><div class="eval-info"><div class="eval-title">First South Asian Victoria Cross — Khudadad Khan</div><div class="eval-sub">Book potential: Strong — feeds directly into KDP Book 16</div><div class="eval-badges"><span class="eb eb-yes">ALREADY PLANNED</span><span class="eb eb-format">VC compilation</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-high">7</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">10</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Verdict</div><div class="fv">This video's research goes straight into your already-planned KDP Book 16 ("The Victoria Cross: 50 Stories of Extraordinary Bravery"). Khudadad Khan becomes the opening story. Zero wasted research. V14 video → Book 16 chapter = perfect content-to-commerce pipeline.</div>
+</div></div>
+
+<!-- V15 -->
+<div class="eval" id="v15"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-no">V15</div><div class="eval-info"><div class="eval-title">Dunkirk — The Halt Order</div><div class="eval-sub">Book potential: Skip — massively saturated</div><div class="eval-badges"><span class="eb eb-no">SKIP</span><span class="eb eb-format">Saturated</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body"><div class="fl">Verdict</div><div class="fv">Dunkirk has 100+ books on Amazon. Your contrarian "German perspective" angle works beautifully as a video (curiosity click) but wouldn't differentiate enough as a book. Include in "Forgotten Battles" compilation or a "War Mysteries" format.</div></div></div>
+
+<!-- V16 -->
+<div class="eval" id="v16"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-yes">V16</div><div class="eval-info"><div class="eval-title">Subhas Chandra Bose and the INA</div><div class="eval-sub">Book potential: Very strong — controversial = engagement</div><div class="eval-badges"><span class="eb eb-yes">STRONG FIT</span><span class="eb eb-format">Biography / narrative</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="scores">
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Demand</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Low Competition</div></div>
+<div class="score"><div class="score-val sv-high">9</div><div class="score-label">Synergy</div></div>
+<div class="score"><div class="score-val sv-med">5</div><div class="score-label">Ease</div></div>
+<div class="score"><div class="score-val sv-high">8</div><div class="score-label">Overall</div></div>
+</div>
+<div class="fl">Why it works</div><div class="fv">Bose is one of the most searched Indian historical figures globally. Controversial figure = passion purchases. Very few balanced English-language accounts exist. Your scholarly neutral tone (promised in V16 notes) fills a genuine gap. The South Asian diaspora is the built-in market. Could also fold into V1 book as a major chapter.</div>
+<div class="book-idea"><h4>Book Concept</h4><p>Option A: Standalone "The Forgotten Army: Subhas Chandra Bose and the Indian National Army" — 180 pages, balanced narrative. $14.99. Option B: Major chapter in V1 Indian Army WW2 book. Either works — standalone has higher ceiling but higher risk (controversy).</p></div>
+</div></div>
+
+<!-- V17 -->
+<div class="eval" id="v17"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-no">V17</div><div class="eval-info"><div class="eval-title">The Great Escape — True Story</div><div class="eval-sub">Book potential: Skip — utterly saturated</div><div class="eval-badges"><span class="eb eb-no">SKIP</span><span class="eb eb-format">100+ books exist</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body"><div class="fl">Verdict</div><div class="fv">Paul Brickhill's classic has been in print since 1950. Dozens of quality books exist. Your "movie vs reality" angle works as a video but can't sustain a standalone book against this competition. Use as content in the "War Movies vs Reality" compilation idea.</div></div></div>
+
+<!-- V18 -->
+<div class="eval" id="v18"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V18</div><div class="eval-info"><div class="eval-title">Agent Garbo — Greatest Double Agent</div><div class="eval-sub">Book potential: Perfect chapter in espionage compilation</div><div class="eval-badges"><span class="eb eb-maybe">COMPILATION</span><span class="eb eb-format">Feeds into Book 15</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="fl">Verdict</div><div class="fv">Stephan Talty already wrote the definitive Garbo book. Don't compete standalone. BUT: Garbo is the star chapter of your KDP Book 15 ("Spies, Codes & Secret Operations: 52 Stories"). The chicken-farmer-turned-spy story is perfect for a compilation format. V18 research → Book 15 chapter. Zero waste.</div>
+</div></div>
+
+<!-- V19 -->
+<div class="eval" id="v19"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-maybe">V19</div><div class="eval-info"><div class="eval-title">Operation Chariot — The Greatest Raid</div><div class="eval-sub">Book potential: Good in "Greatest Raids" compilation</div><div class="eval-badges"><span class="eb eb-maybe">COMPILATION</span><span class="eb eb-format">Commando raids collection</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body">
+<div class="fl">Verdict</div><div class="fv">Strong standalone potential but niche. Better as the flagship entry in a "20 Greatest Commando Raids" compilation — pairing with Entebbe, Son Tay, Bruneval, Dieppe, etc. That compilation has genuine market demand and no quality compact version exists on Amazon.</div>
+</div></div>
+
+<!-- V20 -->
+<div class="eval" id="v20"><div class="eval-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="eval-num en-no">V20</div><div class="eval-info"><div class="eval-title">Audie Murphy — Most Decorated Soldier</div><div class="eval-sub">Book potential: Skip — autobiography exists</div><div class="eval-badges"><span class="eb eb-no">SKIP</span><span class="eb eb-format">Definitive book exists</span></div></div><span class="chevron">▶</span></div>
+<div class="eval-body"><div class="fl">Verdict</div><div class="fv">Murphy literally wrote his own autobiography ("To Hell and Back") which remains a bestseller 70 years later. Cannot compete. Include in "Great Military Leaders" (Book 18) or "VC/Medal of Honor Stories" compilation instead.</div></div></div>
+
+<!-- FINAL RECOMMENDATIONS -->
+<div class="rec">
+<h2>Recommended Video-to-Book Pipeline — 7 Books from 20 Videos</h2>
+<p>Based on this evaluation, here are the 7 strongest book opportunities from your video content, ranked by potential:</p>
+
+<div class="rec-book"><div class="rb-num">1.</div><div><div class="rb-title">The Forgotten Army: 2.5 Million Indian Soldiers in WW2</div><div class="rb-desc">From V1 + V2 + V4 (Indian angle) + V14 (Khudadad Khan) + V16 (Bose/INA). 200+ pages. Unique product, massive underserved market.</div><div class="rb-price">$14.99 · $6.99 royalty · HIGH PRIORITY</div></div></div>
+
+<div class="rec-book"><div class="rb-num">2.</div><div><div class="rb-title">The Secret Heroines: Women Who Fought the Nazis</div><div class="rb-desc">From V5 (Noor) + V6 (Night Witches) + V12 (SOE women). 200 pages. Growing "women in history" market.</div><div class="rb-price">$14.99 · $6.99 royalty · HIGH PRIORITY</div></div></div>
+
+<div class="rec-book"><div class="rb-num">3.</div><div><div class="rb-title">The Gurkhas: 200 Years of the Most Feared Soldiers</div><div class="rb-desc">From V9 expanded to full 200-page narrative. 50 bravery stories across 200 years. Proven demand.</div><div class="rb-price">$14.99 · $6.99 royalty · HIGH PRIORITY</div></div></div>
+
+<div class="rec-book"><div class="rb-num">4.</div><div><div class="rb-title">Spies, Codes & Secret Operations: 52 Stories</div><div class="rb-desc">Already KDP Book 15. Feeds from V3 + V5 + V8 + V12 + V18 research. Minimal extra effort.</div><div class="rb-price">$14.99 · $6.99 royalty · ALREADY PLANNED</div></div></div>
+
+<div class="rec-book"><div class="rb-num">5.</div><div><div class="rb-title">The Victoria Cross: 50 Stories of Extraordinary Bravery</div><div class="rb-desc">Already KDP Book 16. V14 (Khudadad Khan) + V9 (Gurkha VCs) + V19 (Saint-Nazaire VCs) feed in.</div><div class="rb-price">$14.99 · $6.99 royalty · ALREADY PLANNED</div></div></div>
+
+<div class="rec-book"><div class="rb-num">6.</div><div><div class="rb-title">The Ghost Army: 1,100 Artists Who Fooled Hitler</div><div class="rb-desc">From V3 expanded. Compact 120-page narrative undercutting $25+ hardcovers. Unique price positioning.</div><div class="rb-price">$12.99 · $5.09 royalty · MODERATE PRIORITY</div></div></div>
+
+<div class="rec-book"><div class="rb-num">7.</div><div><div class="rb-title">War Movies vs Reality: What Hollywood Got Wrong</div><div class="rb-desc">NEW concept from V7 (Bridge/Kwai) + V17 (Great Escape) + V15 (Dunkirk) + V20 (Audie Murphy). Unique product.</div><div class="rb-price">$12.99 · $5.09 royalty · MODERATE PRIORITY</div></div></div>
+
+<p style="margin-top:16px;font-size:0.78rem;color:#6EE7B7"><strong>Key insight:</strong> Your 20 video scripts become the RESEARCH BACKBONE for these 7 books. You're not doing double work — you're repurposing research you've already done for videos into a second revenue stream. Every video description promotes the relevant book. Every book reader discovers your channel. This is the flywheel.</p>
+</div>
+
+<a class="back" href="index.html">← Back to Master Portal</a>
+</div></body></html>
